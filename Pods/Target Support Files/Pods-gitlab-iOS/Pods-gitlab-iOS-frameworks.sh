@@ -85,11 +85,17 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-gitlab-iOS/Alamofire.framework"
+  install_framework "Pods-gitlab-iOS/AlamofireObjectMapper.framework"
   install_framework "Pods-gitlab-iOS/Mantle.framework"
+  install_framework "Pods-gitlab-iOS/ObjectMapper.framework"
   install_framework "Pods-gitlab-iOS/SnapKit.framework"
+  install_framework "Pods-gitlab-iOS/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gitlab-iOS/Alamofire.framework"
+  install_framework "Pods-gitlab-iOS/AlamofireObjectMapper.framework"
   install_framework "Pods-gitlab-iOS/Mantle.framework"
+  install_framework "Pods-gitlab-iOS/ObjectMapper.framework"
   install_framework "Pods-gitlab-iOS/SnapKit.framework"
+  install_framework "Pods-gitlab-iOS/SwiftyJSON.framework"
 fi

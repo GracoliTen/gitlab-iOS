@@ -7,7 +7,9 @@ target 'gitlab-iOS' do
 	pod 'Mantle'
 	pod 'Alamofire'
 	pod 'SnapKit'
-
+	pod 'SwiftyJSON'
+	pod 'AlamofireObjectMapper', '~> 2.1'
+	
 end
 
 target 'gitlab-iOSTests' do

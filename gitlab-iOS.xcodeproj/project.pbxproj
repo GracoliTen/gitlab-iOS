@@ -14,6 +14,11 @@
 		1A0145AF1C9BC7AE00519F67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A0145AD1C9BC7AE00519F67 /* LaunchScreen.storyboard */; };
 		1A0145BA1C9BC7AE00519F67 /* gitlab_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0145B91C9BC7AE00519F67 /* gitlab_iOSTests.swift */; };
 		1A0145C51C9BC7AE00519F67 /* gitlab_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0145C41C9BC7AE00519F67 /* gitlab_iOSUITests.swift */; };
+		1A0BCF7E1C9BE0B200223A7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0BCF7D1C9BE0B200223A7F /* User.swift */; };
+		1A0BCF801C9BED3D00223A7F /* DubugPrivateToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0BCF7F1C9BECF700223A7F /* DubugPrivateToken.swift */; };
+		1A0BCF841C9BEE6600223A7F /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0BCF831C9BEE6600223A7F /* Project.swift */; };
+		1A12C35E1C9BD54B0050B5F2 /* GitLabAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A12C35D1C9BD54B0050B5F2 /* GitLabAPIClient.swift */; };
+		1A12C3601C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A12C35F1C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift */; };
 		B9E9FDE81AE16520B74F4B58 /* Pods_gitlab_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E7F0F65ACE2F7F84118AFF /* Pods_gitlab_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +53,11 @@
 		1A0145C01C9BC7AE00519F67 /* gitlab-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gitlab-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A0145C41C9BC7AE00519F67 /* gitlab_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitlab_iOSUITests.swift; sourceTree = "<group>"; };
 		1A0145C61C9BC7AE00519F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A0BCF7D1C9BE0B200223A7F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		1A0BCF7F1C9BECF700223A7F /* DubugPrivateToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DubugPrivateToken.swift; sourceTree = "<group>"; };
+		1A0BCF831C9BEE6600223A7F /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Models/Project.swift; sourceTree = "<group>"; };
+		1A12C35D1C9BD54B0050B5F2 /* GitLabAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitLabAPIClient.swift; path = Models/GitLabAPIClient.swift; sourceTree = "<group>"; };
+		1A12C35F1C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlamofireSwiftyJSONAdapater.swift; path = utils/AlamofireSwiftyJSONAdapater.swift; sourceTree = "<group>"; };
 		BC544CC46FD1C5156D46055E /* Pods-gitlab-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gitlab-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gitlab-iOS/Pods-gitlab-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		CD1111B00E009995BB0CD331 /* Pods-gitlab-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gitlab-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-gitlab-iOS/Pods-gitlab-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		F6E7F0F65ACE2F7F84118AFF /* Pods_gitlab_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gitlab_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +92,7 @@
 		1A0145981C9BC7AE00519F67 = {
 			isa = PBXGroup;
 			children = (
+				1A0BCF7F1C9BECF700223A7F /* DubugPrivateToken.swift */,
 				1A0145A31C9BC7AE00519F67 /* gitlab-iOS */,
 				1A0145B81C9BC7AE00519F67 /* gitlab-iOSTests */,
 				1A0145C31C9BC7AE00519F67 /* gitlab-iOSUITests */,
@@ -104,12 +115,16 @@
 		1A0145A31C9BC7AE00519F67 /* gitlab-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				1A0BCF831C9BEE6600223A7F /* Project.swift */,
+				1A0BCF7D1C9BE0B200223A7F /* User.swift */,
 				1A0145A41C9BC7AE00519F67 /* AppDelegate.swift */,
 				1A0145A61C9BC7AE00519F67 /* ViewController.swift */,
 				1A0145A81C9BC7AE00519F67 /* Main.storyboard */,
 				1A0145AB1C9BC7AE00519F67 /* Assets.xcassets */,
 				1A0145AD1C9BC7AE00519F67 /* LaunchScreen.storyboard */,
 				1A0145B01C9BC7AE00519F67 /* Info.plist */,
+				1A12C35D1C9BD54B0050B5F2 /* GitLabAPIClient.swift */,
+				1A12C35F1C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift */,
 			);
 			path = "gitlab-iOS";
 			sourceTree = "<group>";
@@ -333,6 +348,11 @@
 			files = (
 				1A0145A71C9BC7AE00519F67 /* ViewController.swift in Sources */,
 				1A0145A51C9BC7AE00519F67 /* AppDelegate.swift in Sources */,
+				1A12C3601C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift in Sources */,
+				1A0BCF7E1C9BE0B200223A7F /* User.swift in Sources */,
+				1A12C35E1C9BD54B0050B5F2 /* GitLabAPIClient.swift in Sources */,
+				1A0BCF841C9BEE6600223A7F /* Project.swift in Sources */,
+				1A0BCF801C9BED3D00223A7F /* DubugPrivateToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
