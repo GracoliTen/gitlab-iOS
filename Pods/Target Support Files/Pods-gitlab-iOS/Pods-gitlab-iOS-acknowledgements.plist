@@ -100,6 +100,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>See README.markdown for full license text.</string>
+			<key>Title</key>
+			<string>OMGHTTPURLRQ</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>The MIT License (MIT)
 Copyright (c) 2014 Hearst
 
@@ -111,6 +119,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 </string>
 			<key>Title</key>
 			<string>ObjectMapper</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>@see README</string>
+			<key>Title</key>
+			<string>PromiseKit</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

@@ -13,7 +13,12 @@ class Project : Mappable {
     var description:String?
     var isPublic:Bool?
     var name:String?
+    var name_with_namespace:String?
     var avatar_url:String?
+    //TODO: seem to have problems
+    var last_activity_at:NSDate?
+    var star_count:Int?
+    var forks_count:Int?
     
     required init?(_ map: Map) {}
     func mapping(map: Map) {
@@ -21,7 +26,11 @@ class Project : Mappable {
         description <- map["description"]
         isPublic <- map["public"]
         name <- map["name"]
+        name_with_namespace <- map["name_with_namespace"]
         avatar_url <- map["avatar_url"]
+        last_activity_at <- map["last_activity_at"]
+        star_count <- map["star_count"]
+        forks_count <- map["forks_count"]
     }
 }
 
@@ -30,6 +39,8 @@ enum ProjectRouter : HostProvidedURLRequestConvertible {
     case owned
     case starred
     case id(Int)
+    
+    typealias ReturnType = Project
     
     var path:String {
         let base = "/projects"
