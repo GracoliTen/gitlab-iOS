@@ -15,7 +15,7 @@
 		1A0145BA1C9BC7AE00519F67 /* gitlab_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0145B91C9BC7AE00519F67 /* gitlab_iOSTests.swift */; };
 		1A0145C51C9BC7AE00519F67 /* gitlab_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0145C41C9BC7AE00519F67 /* gitlab_iOSUITests.swift */; };
 		1A0BCF7E1C9BE0B200223A7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0BCF7D1C9BE0B200223A7F /* User.swift */; };
-		1A0BCF801C9BED3D00223A7F /* DubugPrivateToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0BCF7F1C9BECF700223A7F /* DubugPrivateToken.swift */; };
+		1A0BCF801C9BED3D00223A7F /* DebugPrivateToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0BCF7F1C9BECF700223A7F /* DebugPrivateToken.swift */; };
 		1A0BCF841C9BEE6600223A7F /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0BCF831C9BEE6600223A7F /* Project.swift */; };
 		1A12C35E1C9BD54B0050B5F2 /* GitLabAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A12C35D1C9BD54B0050B5F2 /* GitLabAPIClient.swift */; };
 		1A12C3601C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A12C35F1C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift */; };
@@ -58,7 +58,7 @@
 		1A0145C41C9BC7AE00519F67 /* gitlab_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitlab_iOSUITests.swift; sourceTree = "<group>"; };
 		1A0145C61C9BC7AE00519F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A0BCF7D1C9BE0B200223A7F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
-		1A0BCF7F1C9BECF700223A7F /* DubugPrivateToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DubugPrivateToken.swift; sourceTree = "<group>"; };
+		1A0BCF7F1C9BECF700223A7F /* DebugPrivateToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugPrivateToken.swift; sourceTree = "<group>"; };
 		1A0BCF831C9BEE6600223A7F /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Models/Project.swift; sourceTree = "<group>"; };
 		1A12C35D1C9BD54B0050B5F2 /* GitLabAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitLabAPIClient.swift; path = Models/GitLabAPIClient.swift; sourceTree = "<group>"; };
 		1A12C35F1C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlamofireSwiftyJSONAdapater.swift; path = utils/AlamofireSwiftyJSONAdapater.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		1A0145981C9BC7AE00519F67 = {
 			isa = PBXGroup;
 			children = (
-				1A0BCF7F1C9BECF700223A7F /* DubugPrivateToken.swift */,
+				1A0BCF7F1C9BECF700223A7F /* DebugPrivateToken.swift */,
 				1A0145A31C9BC7AE00519F67 /* gitlab-iOS */,
 				1A0145B81C9BC7AE00519F67 /* gitlab-iOSTests */,
 				1A0145C31C9BC7AE00519F67 /* gitlab-iOSUITests */,
@@ -368,7 +368,7 @@
 				1A12C35E1C9BD54B0050B5F2 /* GitLabAPIClient.swift in Sources */,
 				1A0BCF841C9BEE6600223A7F /* Project.swift in Sources */,
 				1A44B0461C9D4DB2009C35F8 /* TableViewCellViewModel.swift in Sources */,
-				1A0BCF801C9BED3D00223A7F /* DubugPrivateToken.swift in Sources */,
+				1A0BCF801C9BED3D00223A7F /* DebugPrivateToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
