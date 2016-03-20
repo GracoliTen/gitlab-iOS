@@ -9,7 +9,7 @@ import ObjectMapper
 import Alamofire
 
 class Project : Mappable {
-    var id:Int?
+    var id:Int = -1
     var description:String?
     var isPublic:Bool?
     var name:String?

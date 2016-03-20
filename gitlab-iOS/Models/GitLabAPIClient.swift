@@ -15,6 +15,7 @@ import PromiseKit
 
 protocol HostProvidedURLRequestConvertible {
     typealias ReturnType : Mappable
+    //    typealias ViewModelType : TableViewCellViewModel
     func request(host:NSURL) -> NSMutableURLRequest
 }
 
@@ -55,20 +56,5 @@ class GitLabAPIClient {
             }
         }
     }
-
-//    
-//    
-//    //may need to introduce PromiseKit
-//    func projects(router:ProjectRouter) -> Promise<[Project]> {
-//        return Promise { fulfill, reject in
-//            self.request(router).responseArray { (res:Response<[Project], NSError>) -> Void in
-//                if let err = res.result.error {
-//                    reject(err)
-//                } else if let v = res.result.value {
-//                    fulfill(v)
-//                }
-//            }
-//        }
-//    }
 }
 

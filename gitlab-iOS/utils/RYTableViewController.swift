@@ -10,8 +10,16 @@ import UIKit
 
 //TODO: (Table, Section) x (Headers, footers)
 class RYTableViewController : UITableViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
     var viewModels:[[TableViewCellViewModel]] = [] {
-        didSet {tableView.reloadData()}
+        didSet {
+            tableView.reloadData()
+            }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -26,13 +34,15 @@ class RYTableViewController : UITableViewController {
         let viewModel = viewModels[indexPath.section][indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier(viewModel.cellIdentifier, forIndexPath: indexPath)
         viewModel.configureCell(cell)
+        
+        cell.layoutIfNeeded()
         return cell
     }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let height = viewModels[indexPath.section][indexPath.row].heightForCell
-        return height ?? super.tableView(tableView, heightForRowAtIndexPath:indexPath)
-    }
+//    
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        let height = viewModels[indexPath.section][indexPath.row].heightForCell
+//        return height ?? super.tableView(tableView, heightForRowAtIndexPath:indexPath)
+//    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let viewModel = viewModels[indexPath.section][indexPath.row]

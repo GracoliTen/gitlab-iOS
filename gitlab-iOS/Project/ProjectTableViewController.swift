@@ -21,6 +21,7 @@ class ProjectTableViewController: RYTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.estimatedRowHeight = 85
         reloadData()
     }
     

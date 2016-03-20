@@ -9,9 +9,33 @@
 import ObjectMapper
 import Alamofire
 
-//class User: Mappable {
-//
-//}
+class User: Mappable {
+    
+    var id:Int = -1
+    var username:String?
+    var name:String?
+    var state:String?
+    var avatar_url:String?
+    var created_at:NSDate?
+    var bio:String?
+    var website_url:String?
+    
+    required init?(_ map: Map) {}
+    func mapping(map: Map) {
+        id <- map["id"]
+        username <- map["username"]
+        name <- map["name"]
+        state <- map["state"]
+        avatar_url <- map["avatar_url"]
+        created_at <- (map["created_at"],GitLabDateTransform())
+        bio <- map["bio"]
+        
+        website_url <- map["website_url"]
+        if website_url == nil {
+            website_url <- map["web_url"]
+        }
+    }
+}
 
 
 //enum LoginRouter:HostProvidedURLRequestConvertible {
