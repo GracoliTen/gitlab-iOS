@@ -4,7 +4,7 @@
 use_frameworks!
 
 target 'gitlab-iOS' do
-	pod 'Mantle'
+	pod 'DateTools'
 	pod 'Alamofire'
 	pod 'SnapKit'
 	pod 'SwiftyJSON'

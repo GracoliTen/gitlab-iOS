@@ -18,7 +18,7 @@ import UIKit
     
     optional var heightForCell : CGFloat {get}
     
-    optional func didSelectCell()
+    optional func didSelectCell(indexPath:NSIndexPath,controller:RYTableViewController)
     
     
 }

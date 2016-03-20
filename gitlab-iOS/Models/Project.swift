@@ -28,7 +28,7 @@ class Project : Mappable {
         name <- map["name"]
         name_with_namespace <- map["name_with_namespace"]
         avatar_url <- map["avatar_url"]
-        last_activity_at <- map["last_activity_at"]
+        last_activity_at <- (map["last_activity_at"],GitLabDateTransform())
         star_count <- map["star_count"]
         forks_count <- map["forks_count"]
     }

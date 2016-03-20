@@ -86,7 +86,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-gitlab-iOS/Alamofire.framework"
   install_framework "Pods-gitlab-iOS/AlamofireObjectMapper.framework"
-  install_framework "Pods-gitlab-iOS/Mantle.framework"
+  install_framework "Pods-gitlab-iOS/DateTools.framework"
   install_framework "Pods-gitlab-iOS/OMGHTTPURLRQ.framework"
   install_framework "Pods-gitlab-iOS/ObjectMapper.framework"
   install_framework "Pods-gitlab-iOS/PromiseKit.framework"
@@ -96,7 +96,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gitlab-iOS/Alamofire.framework"
   install_framework "Pods-gitlab-iOS/AlamofireObjectMapper.framework"
-  install_framework "Pods-gitlab-iOS/Mantle.framework"
+  install_framework "Pods-gitlab-iOS/DateTools.framework"
   install_framework "Pods-gitlab-iOS/OMGHTTPURLRQ.framework"
   install_framework "Pods-gitlab-iOS/ObjectMapper.framework"
   install_framework "Pods-gitlab-iOS/PromiseKit.framework"

@@ -9,15 +9,18 @@
 import UIKit
 
 class ProjectTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var descLabel: UILabel!
-
+    
     @IBOutlet weak var starCountLabel: UILabel!
-
+    
     @IBOutlet weak var forkCountLabel: UILabel!
+    
 }
+
+
 
 
 class ProjectTableViewCellViewModel : NSObject, TableViewCellViewModel {
@@ -38,10 +41,9 @@ class ProjectTableViewCellViewModel : NSObject, TableViewCellViewModel {
         theCell.forkCountLabel.text = "\(project.forks_count ?? 0)"
     }
     
-    func didSelectCell() {
-        let alarm = UIAlertController(title: "selected", message: "project \(project.name)", preferredStyle: .Alert)
-        alarm.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alarm, animated: true, completion: nil)
+    func didSelectCell(indexPath:NSIndexPath,controller:RYTableViewController) {
+        let segue = "ProjectToDetailSegue"
+        controller.performSegueWithIdentifier(segue, sender: project)
     }
     
     var resetAfterSelect = true

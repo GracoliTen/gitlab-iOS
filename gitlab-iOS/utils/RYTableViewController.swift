@@ -39,7 +39,7 @@ class RYTableViewController : UITableViewController {
         if (viewModel.resetAfterSelect ?? false) {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
-        viewModel.didSelectCell?()
+        viewModel.didSelectCell?(indexPath,controller: self)
     }
     
 }
