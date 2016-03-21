@@ -19,6 +19,7 @@ class User: Mappable {
     var created_at:NSDate?
     var bio:String?
     var website_url:String?
+    var email:String?
     
     required init?(_ map: Map) {}
     func mapping(map: Map) {
@@ -29,11 +30,42 @@ class User: Mappable {
         avatar_url <- map["avatar_url"]
         created_at <- (map["created_at"],GitLabDateTransform())
         bio <- map["bio"]
+        email <- map["email"]
         
         website_url <- map["website_url"]
         if website_url == nil {
             website_url <- map["web_url"]
         }
+    }
+}
+
+
+
+enum UserRouter : HostProvidedURLRequestConvertible {
+    case list
+    case single(Int)
+    case project(Int,Int?) //project_id, user_id
+    
+    typealias ReturnType = User
+    
+    var path:String {
+        switch self {
+        case .list:
+            return "/users"
+        case .single(let id):
+            return "/users/\(id)"
+        case .project(let id,let userid):
+            var s = "/projects/\(id)/members"
+            if let i = userid {s += "/\(i)"}
+            return s
+        }
+    }
+    
+    
+    func request(host:NSURL) -> NSMutableURLRequest {
+        let request = NSMutableURLRequest(URL: host.URLByAppendingPathComponent(self.path))
+        request.HTTPMethod = Alamofire.Method.GET.rawValue
+        return Alamofire.ParameterEncoding.URL.encode(request, parameters: nil).0
     }
 }
 

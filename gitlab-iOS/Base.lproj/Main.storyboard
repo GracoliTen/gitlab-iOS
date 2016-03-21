@@ -319,6 +319,84 @@
                                     <outlet property="titleLabel" destination="7AU-Rq-vLD" id="u4K-zn-6EB"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UserCell" id="fF7-tU-sQh" customClass="UserTableViewCell" customModule="gitlab_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="328" width="375" height="85"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fF7-tU-sQh" id="pWu-bH-e7M">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1RL-i8-LYw">
+                                            <rect key="frame" x="8" y="12" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="2pG-vP-bhD"/>
+                                                <constraint firstAttribute="height" constant="60" id="5em-na-eax"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="755" text="User" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0W-ig-DVh">
+                                            <rect key="frame" x="78" y="12" width="42" height="25"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cn-wd-zKo">
+                                            <rect key="frame" x="78" y="41" width="35" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user@git.example.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-go-1a0">
+                                            <rect key="frame" x="117" y="41" width="147" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elc-aI-Qcw">
+                                            <rect key="frame" x="78" y="63" width="39" height="8"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="#1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tls-ar-pfv">
+                                            <rect key="frame" x="316" y="8" width="18" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tls-ar-pfv" firstAttribute="top" secondItem="pWu-bH-e7M" secondAttribute="topMargin" id="BWl-aH-P4I"/>
+                                        <constraint firstItem="bBn-go-1a0" firstAttribute="firstBaseline" secondItem="9cn-wd-zKo" secondAttribute="firstBaseline" id="FeE-zE-q0R"/>
+                                        <constraint firstItem="1RL-i8-LYw" firstAttribute="centerY" secondItem="pWu-bH-e7M" secondAttribute="centerY" id="JTB-6d-46a"/>
+                                        <constraint firstItem="tls-ar-pfv" firstAttribute="trailing" secondItem="pWu-bH-e7M" secondAttribute="trailingMargin" id="N37-fq-Ljz"/>
+                                        <constraint firstItem="tls-ar-pfv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="V0W-ig-DVh" secondAttribute="trailing" constant="8" symbolic="YES" id="Orh-2v-ZHL"/>
+                                        <constraint firstItem="bBn-go-1a0" firstAttribute="top" secondItem="pWu-bH-e7M" secondAttribute="topMargin" constant="33" id="QCW-kA-yo4"/>
+                                        <constraint firstItem="Elc-aI-Qcw" firstAttribute="leading" secondItem="9cn-wd-zKo" secondAttribute="leading" id="Rb3-F8-TLg"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Elc-aI-Qcw" secondAttribute="bottom" constant="5" id="Ryu-6l-GHF"/>
+                                        <constraint firstItem="9cn-wd-zKo" firstAttribute="baseline" secondItem="bBn-go-1a0" secondAttribute="baseline" id="bbi-Jk-xOs"/>
+                                        <constraint firstItem="V0W-ig-DVh" firstAttribute="top" secondItem="pWu-bH-e7M" secondAttribute="topMargin" constant="4" id="fpe-bc-6B0"/>
+                                        <constraint firstItem="1RL-i8-LYw" firstAttribute="leading" secondItem="pWu-bH-e7M" secondAttribute="leadingMargin" id="hLF-aR-j2q"/>
+                                        <constraint firstItem="9cn-wd-zKo" firstAttribute="leading" secondItem="V0W-ig-DVh" secondAttribute="leading" id="kQ6-xz-fj1"/>
+                                        <constraint firstItem="V0W-ig-DVh" firstAttribute="leading" secondItem="1RL-i8-LYw" secondAttribute="trailing" constant="10" id="mBf-Cj-Sne"/>
+                                        <constraint firstItem="Elc-aI-Qcw" firstAttribute="top" secondItem="9cn-wd-zKo" secondAttribute="bottom" constant="5" id="t36-eM-O9a"/>
+                                        <constraint firstItem="9cn-wd-zKo" firstAttribute="baseline" secondItem="bBn-go-1a0" secondAttribute="firstBaseline" id="taV-4G-OTK"/>
+                                        <constraint firstItem="9cn-wd-zKo" firstAttribute="top" secondItem="V0W-ig-DVh" secondAttribute="bottom" constant="4" id="u09-df-cF5"/>
+                                        <constraint firstItem="bBn-go-1a0" firstAttribute="leading" secondItem="9cn-wd-zKo" secondAttribute="trailing" constant="4" id="wKe-zd-NKx"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="taV-4G-OTK"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="IDLabel" destination="tls-ar-pfv" id="Jfs-zt-Rny"/>
+                                    <outlet property="avatarImageView" destination="1RL-i8-LYw" id="P3Z-4z-u6Y"/>
+                                    <outlet property="emailLabel" destination="bBn-go-1a0" id="8wo-w4-K6g"/>
+                                    <outlet property="nameLabel" destination="V0W-ig-DVh" id="yxW-mo-t6i"/>
+                                    <outlet property="stateLabel" destination="Elc-aI-Qcw" id="ve3-Ty-EnX"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="rin-M7-FvN" id="O62-CY-Aon"/>

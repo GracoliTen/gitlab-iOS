@@ -43,6 +43,7 @@ class IssueTableViewCellViewModel : NSObject, TableViewCellViewModel {
             theCell.avatarImageView.image = $0
         }
         theCell.tagsLabel.text = issue.labels.reduce("[", combine: {$0+$1})+"]"
+        
     }
     
     func didSelectCell() {

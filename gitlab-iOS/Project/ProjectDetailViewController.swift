@@ -11,6 +11,7 @@ import UIKit
 enum ProjectDetailViewType : Int {
     case Commits = 0
     case Issues = 1
+    case Members = 2
 }
 
 class ProjectDetailViewController: RYTableViewController {
@@ -41,7 +42,13 @@ class ProjectDetailViewController: RYTableViewController {
                 } .error { (err:ErrorType) -> Void in
                     //make an errr HUD
             }
-
+        case .Members:
+            client.getArray(UserRouter.project(project.id, nil)) .then { arr -> Void in
+                let section = arr.map {UserTableViewCellViewModel(user: $0)}
+                self.viewModels = [section]
+                } .error { (err:ErrorType) -> Void in
+                    //make an errr HUD
+            }
         }
         
         
