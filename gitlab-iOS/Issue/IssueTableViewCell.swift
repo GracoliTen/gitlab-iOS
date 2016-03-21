@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import TagListView
 
 class IssueTableViewCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
-
+    
     @IBOutlet weak var titleLabel: UILabel!
-
+    
+    @IBOutlet weak var tagsView: TagListView!
     @IBOutlet weak var IDLabel: UILabel!
-    @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var assigneeLabel: UILabel!
     
     override func awakeFromNib() {
@@ -42,7 +43,11 @@ class IssueTableViewCellViewModel : NSObject, TableViewCellViewModel {
         UIImage.imageFromURL(URL: issue.assignee?.avatar_url) {
             theCell.avatarImageView.image = $0
         }
-        theCell.tagsLabel.text = issue.labels.reduce("[", combine: {$0+$1})+"]"
+        
+        theCell.tagsView.removeAllTags()
+        for (label,color) in LabelTinter.tintLabels(issue.labels) {
+            theCell.tagsView.addTag(label).tagBackgroundColor = color
+        }
         
     }
     

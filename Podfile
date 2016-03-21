@@ -10,6 +10,7 @@ target 'gitlab-iOS' do
 	pod 'SwiftyJSON'
 	pod 'AlamofireObjectMapper', '~> 2.1'
 	pod 'PromiseKit'
+	pod 'TagListView'
 end
 
 target 'gitlab-iOSTests' do

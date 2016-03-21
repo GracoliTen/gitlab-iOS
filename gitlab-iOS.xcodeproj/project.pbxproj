@@ -15,6 +15,7 @@
 		1A0145BA1C9BC7AE00519F67 /* gitlab_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0145B91C9BC7AE00519F67 /* gitlab_iOSTests.swift */; };
 		1A0145C51C9BC7AE00519F67 /* gitlab_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0145C41C9BC7AE00519F67 /* gitlab_iOSUITests.swift */; };
 		1A0718DC1C9F8A5400DB0015 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0718DB1C9F8A5400DB0015 /* UserTableViewCell.swift */; };
+		1A0718E01C9F926100DB0015 /* LabelTinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0718DF1C9F926100DB0015 /* LabelTinter.swift */; };
 		1A0BCF7E1C9BE0B200223A7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0BCF7D1C9BE0B200223A7F /* User.swift */; };
 		1A0BCF801C9BED3D00223A7F /* DebugPrivateToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0BCF7F1C9BECF700223A7F /* DebugPrivateToken.swift */; };
 		1A0BCF841C9BEE6600223A7F /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0BCF831C9BEE6600223A7F /* Project.swift */; };
@@ -66,6 +67,7 @@
 		1A0145C41C9BC7AE00519F67 /* gitlab_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitlab_iOSUITests.swift; sourceTree = "<group>"; };
 		1A0145C61C9BC7AE00519F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A0718DB1C9F8A5400DB0015 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTableViewCell.swift; path = "gitlab-iOS/User/UserTableViewCell.swift"; sourceTree = "<group>"; };
+		1A0718DF1C9F926100DB0015 /* LabelTinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelTinter.swift; path = "gitlab-iOS/utils/LabelTinter.swift"; sourceTree = "<group>"; };
 		1A0BCF7D1C9BE0B200223A7F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = "gitlab-iOS/Models/User.swift"; sourceTree = "<group>"; };
 		1A0BCF7F1C9BECF700223A7F /* DebugPrivateToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugPrivateToken.swift; path = ../DebugPrivateToken.swift; sourceTree = "<group>"; };
 		1A0BCF831C9BEE6600223A7F /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Models/Project.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		1A0145981C9BC7AE00519F67 = {
 			isa = PBXGroup;
 			children = (
+				1A0718DF1C9F926100DB0015 /* LabelTinter.swift */,
 				1A0145A31C9BC7AE00519F67 /* gitlab-iOS */,
 				1A0145B81C9BC7AE00519F67 /* gitlab-iOSTests */,
 				1A0145C31C9BC7AE00519F67 /* gitlab-iOSUITests */,
@@ -426,6 +429,7 @@
 				1A0145A51C9BC7AE00519F67 /* AppDelegate.swift in Sources */,
 				1A44B0401C9D2403009C35F8 /* ProjectTableViewController.swift in Sources */,
 				1A2650B51C9EA65E008AD94A /* IssueTableViewCell.swift in Sources */,
+				1A0718E01C9F926100DB0015 /* LabelTinter.swift in Sources */,
 				1A12C3601C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift in Sources */,
 				1A0BCF7E1C9BE0B200223A7F /* User.swift in Sources */,
 				1A0718DC1C9F8A5400DB0015 /* UserTableViewCell.swift in Sources */,

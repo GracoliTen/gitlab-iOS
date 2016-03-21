@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TagListView
 
 class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -14,9 +15,9 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var IDLabel: UILabel!
-    @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
+    @IBOutlet weak var stateTags: TagListView!
     override func awakeFromNib() {
         super.awakeFromNib()
         avatarImageView.layer.cornerRadius = 5.0
@@ -38,13 +39,15 @@ class UserTableViewCellViewModel : NSObject, TableViewCellViewModel {
         let theCell = cell as! UserTableViewCell
         theCell.nameLabel.text = user.name
         theCell.IDLabel.text = "#\(user.id)"
-        theCell.stateLabel.text = user.state
         theCell.emailLabel.text = user.email ?? user.website_url
         
         UIImage.imageFromURL(URL: user.avatar_url) {
             theCell.avatarImageView.image = $0
         }
         
+        theCell.stateTags.removeAllTags()
+        guard let state = user.state else {return}
+        theCell.stateTags.addTag(state).tagBackgroundColor = LabelTinter.darkRed()
         
     }
     
