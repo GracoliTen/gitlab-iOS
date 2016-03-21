@@ -25,20 +25,19 @@ class IssueTableViewCell: UITableViewCell {
     }
 }
 
-class IssueTableViewCellViewModel : NSObject, TableViewCellViewModel {
+class IssueTableViewCellViewModel : TableViewCellViewModel {
     
     let issue:Issue
     init(issue:Issue) {
         self.issue = issue
-        super.init()
     }
     
-    let cellIdentifier =  "IssueCell"
+    @objc let cellIdentifier =  "IssueCell"
     
-    func configureCell(cell:UITableViewCell) {
+    @objc func configureCell(cell:UITableViewCell) {
         let theCell = cell as! IssueTableViewCell
         theCell.titleLabel.text = issue.title
-        theCell.IDLabel.text = "#\(issue.id)"
+        theCell.IDLabel.text = "#\(issue.iid)"
         theCell.assigneeLabel.text = issue.assignee?.name
         UIImage.imageFromURL(URL: issue.assignee?.avatar_url) {
             theCell.avatarImageView.image = $0
@@ -48,7 +47,8 @@ class IssueTableViewCellViewModel : NSObject, TableViewCellViewModel {
         for (label,color) in LabelTinter.tintLabels(issue.labels) {
             theCell.tagsView.addTag(label).tagBackgroundColor = color
         }
-        
+        theCell.layoutIfNeeded()
+        theCell.titleLabel.preferredMaxLayoutWidth = theCell.titleLabel.frame.width
     }
     
     func didSelectCell() {
@@ -57,5 +57,5 @@ class IssueTableViewCellViewModel : NSObject, TableViewCellViewModel {
         UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alarm, animated: true, completion: nil)
     }
     
-    var resetAfterSelect = true
+    @objc var resetAfterSelect = true
 }

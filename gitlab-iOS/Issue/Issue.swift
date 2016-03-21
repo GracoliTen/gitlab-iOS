@@ -19,8 +19,8 @@ class Milestone: Mappable {
 class Issue : Mappable {
     
     var project_id:Int = -1
-    var id:Int = -1
-    var iid:Int = -1
+    var id:Int = -1 //id in whole system
+    var iid:Int = -1 //id in project
     
     var title:String?
     var state:String?

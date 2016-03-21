@@ -25,17 +25,16 @@ class UserTableViewCell: UITableViewCell {
     }
 }
 
-class UserTableViewCellViewModel : NSObject, TableViewCellViewModel {
+class UserTableViewCellViewModel : TableViewCellViewModel {
     
     let user:User
     init(user:User) {
         self.user = user
-        super.init()
     }
     
-    let cellIdentifier =  "UserCell"
+    @objc let cellIdentifier =  "UserCell"
     
-    func configureCell(cell:UITableViewCell) {
+    @objc func configureCell(cell:UITableViewCell) {
         let theCell = cell as! UserTableViewCell
         theCell.nameLabel.text = user.name
         theCell.IDLabel.text = "#\(user.id)"
@@ -57,5 +56,5 @@ class UserTableViewCellViewModel : NSObject, TableViewCellViewModel {
         UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alarm, animated: true, completion: nil)
     }
     
-    var resetAfterSelect = true
+    @objc var resetAfterSelect = true
 }

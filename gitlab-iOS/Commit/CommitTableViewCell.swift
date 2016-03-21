@@ -18,17 +18,16 @@ class CommitTableViewCell : UITableViewCell {
 
 
 
-class CommitTableViewCellViewModel : NSObject, TableViewCellViewModel {
+class CommitTableViewCellViewModel : TableViewCellViewModel {
     
     let commit:Commit
     init(commit:Commit) {
         self.commit = commit
-        super.init()
     }
     
-    let cellIdentifier =  "CommitCell"
+    @objc let cellIdentifier =  "CommitCell"
     
-    func configureCell(cell:UITableViewCell) {
+    @objc func configureCell(cell:UITableViewCell) {
         let theCell = cell as! CommitTableViewCell
         theCell.titleLabel.text = commit.title
         theCell.shaLabel.text = commit.short_id
@@ -42,5 +41,5 @@ class CommitTableViewCellViewModel : NSObject, TableViewCellViewModel {
         UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alarm, animated: true, completion: nil)
     }
     
-    var resetAfterSelect = true
+    @objc var resetAfterSelect = true
 }

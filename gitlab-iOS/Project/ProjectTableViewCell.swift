@@ -23,17 +23,16 @@ class ProjectTableViewCell: UITableViewCell {
 
 
 
-class ProjectTableViewCellViewModel : NSObject, TableViewCellViewModel {
+class ProjectTableViewCellViewModel :  TableViewCellViewModel {
     
     let project:Project
     init(project:Project) {
         self.project = project
-        super.init()
     }
     
-    let cellIdentifier =  "ProjectCell"
+    @objc let cellIdentifier =  "ProjectCell"
     
-    func configureCell(cell:UITableViewCell) {
+    @objc func configureCell(cell:UITableViewCell) {
         let theCell = cell as! ProjectTableViewCell
         theCell.nameLabel.text = project.name_with_namespace
         theCell.descLabel.text = project.description
@@ -41,10 +40,10 @@ class ProjectTableViewCellViewModel : NSObject, TableViewCellViewModel {
         theCell.forkCountLabel.text = "\(project.forks_count ?? 0)"
     }
     
-    func didSelectCell(indexPath:NSIndexPath,controller:RYTableViewController) {
+    @objc func didSelectCell(indexPath:NSIndexPath,controller:RYTableViewController) {
         let segue = "ProjectToDetailSegue"
         controller.performSegueWithIdentifier(segue, sender: project)
     }
     
-    var resetAfterSelect = true
+    @objc var resetAfterSelect = true
 }
