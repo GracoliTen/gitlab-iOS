@@ -6,11 +6,10 @@
 //  Copyright © 2016年 dyweb. All rights reserved.
 //
 
-//import UIKit
 import ObjectMapper
 import Alamofire
 
-
+//TODO
 class Milestone: Mappable {
     required init?(_ map: Map) {}
     func mapping(map: Map) {}
@@ -22,8 +21,8 @@ class Issue : Mappable {
     var id:Int = -1 //id in whole system
     var iid:Int = -1 //id in project
     
-    var title:String?
-    var state:String?
+    var title:String = ""
+    var state:IssueState = .Opened
     var desc:String?
 
     var milestone:Milestone?
@@ -37,7 +36,7 @@ class Issue : Mappable {
     
     required init?(_ map: Map) {}
     func mapping(map: Map) {
-        state <- map["state"]
+        state <- (map["state"],EnumTransform<IssueState>())
         desc <- map["description"]
         author <- map["author"]
         milestone <- map["milestone"]
@@ -59,16 +58,16 @@ enum IssueState : String {
 }
 
 enum IssueRouter : HostProvidedURLRequestConvertible {
-    case list(IssueState?, [String]?) //state,labels
-    case project(Int,IssueState?, [String]?) //projectID
+    case List(IssueState?, [String]?) //state,labels
+    case Project(Int,IssueState?, [String]?) //projectID
     
     typealias ReturnType = Issue
     
     var path:String {
         switch self {
-        case .list:
+        case .List:
             return "/issues"
-        case .project(let id,_,_):
+        case .Project(let id,_,_):
             return "/projects/\(id)/issues"
         }
     }
@@ -77,10 +76,10 @@ enum IssueRouter : HostProvidedURLRequestConvertible {
         let state:IssueState?
         let labels:[String]?
         switch self {
-        case .list(let s,let l):
+        case .List(let s,let l):
             state = s
             labels = l
-        case .project(_,let s,let l):
+        case .Project(_,let s,let l):
             state = s
             labels = l
         }

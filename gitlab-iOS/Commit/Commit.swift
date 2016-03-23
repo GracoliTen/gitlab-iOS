@@ -32,17 +32,17 @@ class Commit : Mappable {
 
 
 enum CommitRouter : HostProvidedURLRequestConvertible {
-    case list(id:Int) //id
-    case single(id:Int,sha:String)
+    case List(id:Int) //id
+    case Single(id:Int,sha:String)
     
     typealias ReturnType = Commit
     
     var path:String {
         let base = "/projects"
         switch self {
-        case .list(let id):
+        case .List(let id):
             return base + "/\(id)/repository/commits"
-        case .single(let id, let sha):
+        case .Single(let id, let sha):
             return base + "/\(id)/repository/commits/\(sha)"
         }
     }

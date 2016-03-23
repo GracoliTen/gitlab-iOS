@@ -25,14 +25,4 @@ class ProjectTableViewController: RYTableViewController {
         reloadData()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard (segue.identifier != nil) else {return}
-        switch segue.identifier! {
-        case "ProjectToDetailSegue":
-            let vc = segue.destinationViewController as! ProjectDetailViewController
-            vc.project = sender as! Project
-        default:
-            break
-        }
-    }
 }

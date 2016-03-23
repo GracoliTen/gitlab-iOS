@@ -42,7 +42,11 @@ class ProjectTableViewCellViewModel :  TableViewCellViewModel {
     
     @objc func didSelectCell(indexPath:NSIndexPath,controller:RYTableViewController) {
         let segue = "ProjectToDetailSegue"
-        controller.performSegueWithIdentifier(segue, sender: project)
+        controller.performSegueWithIdentifier(segue, sender: project) {
+            segue in
+            let vc = segue.destinationViewController as! ProjectDetailViewController
+            vc.project = self.project
+        }
     }
     
     @objc var resetAfterSelect = true

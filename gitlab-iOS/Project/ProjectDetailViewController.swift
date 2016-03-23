@@ -29,21 +29,21 @@ class ProjectDetailViewController: RYTableViewController {
         
         switch type {
         case .Commits:
-            client.getArray(CommitRouter.list(id: project.id)) .then { arr -> Void in
+            client.getArray(CommitRouter.List(id: project.id)) .then { arr -> Void in
                 let section = arr.map {CommitTableViewCellViewModel(commit: $0)}
                 self.viewModels = [section]
                 } .error { (err:ErrorType) -> Void in
                     //make an errr HUD
             }
         case .Issues:
-            client.getArray(IssueRouter.project(project.id, nil, nil)) .then { arr -> Void in
+            client.getArray(IssueRouter.Project(project.id, nil, nil)) .then { arr -> Void in
                 let section = arr.map {IssueTableViewCellViewModel(issue: $0)}
                 self.viewModels = [section]
                 } .error { (err:ErrorType) -> Void in
                     //make an errr HUD
             }
         case .Members:
-            client.getArray(UserRouter.project(project.id, nil)) .then { arr -> Void in
+            client.getArray(UserRouter.Project(project.id, nil)) .then { arr -> Void in
                 let section = arr.map {UserTableViewCellViewModel(user: $0)}
                 self.viewModels = [section]
                 } .error { (err:ErrorType) -> Void in
@@ -67,4 +67,5 @@ class ProjectDetailViewController: RYTableViewController {
     func segementValueChanged(segment:UISegmentedControl) {
         reloadData()
     }
+    
 }

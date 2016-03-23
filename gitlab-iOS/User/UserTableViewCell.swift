@@ -50,11 +50,8 @@ class UserTableViewCellViewModel : TableViewCellViewModel {
         
     }
     
-    func didSelectCell() {
-        let alarm = UIAlertController(title: "selected", message: "user \(user.id)", preferredStyle: .Alert)
-        alarm.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alarm, animated: true, completion: nil)
+    @objc func didSelectCell(indexPath: NSIndexPath, controller: RYTableViewController) {
+        
     }
-    
     @objc var resetAfterSelect = true
 }

@@ -14,6 +14,7 @@ class RYTableViewController : UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44 //as default, enable self sizing
     }
     
     var viewModels:[[TableViewCellViewModel]] = [] {
@@ -50,6 +51,24 @@ class RYTableViewController : UITableViewController {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
         viewModel.didSelectCell?(indexPath,controller: self)
+    }
+    
+    //TODO:is is sufficient to
+    //1. identify each action only by segue identifier?
+    //2. allow only one action for each segue?
+    //is it necessery to make it a Promise?
+    private var seguePreparationActions:[String:(UIStoryboardSegue->Void)] = [:]
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        if let id = segue.identifier,
+            let action = seguePreparationActions[id] {
+                action(segue)
+                seguePreparationActions[id] = nil
+        }
+    }
+    func performSegueWithIdentifier(identifier: String,sender:AnyObject?, action:(UIStoryboardSegue->Void)) {
+        seguePreparationActions[identifier] = action
+        self.performSegueWithIdentifier(identifier, sender: sender)
     }
     
 }

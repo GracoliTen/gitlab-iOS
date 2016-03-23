@@ -42,19 +42,19 @@ class User: Mappable {
 
 
 enum UserRouter : HostProvidedURLRequestConvertible {
-    case list
-    case single(Int)
-    case project(Int,Int?) //project_id, user_id
+    case List
+    case Single(Int)
+    case Project(Int,Int?) //project_id, user_id
     
     typealias ReturnType = User
     
     var path:String {
         switch self {
-        case .list:
+        case .List:
             return "/users"
-        case .single(let id):
+        case .Single(let id):
             return "/users/\(id)"
-        case .project(let id,let userid):
+        case .Project(let id,let userid):
             var s = "/projects/\(id)/members"
             if let i = userid {s += "/\(i)"}
             return s

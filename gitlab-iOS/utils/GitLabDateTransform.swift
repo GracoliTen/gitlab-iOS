@@ -1,3 +1,4 @@
+
 //
 //  GitLabDateTransform.swift
 //  gitlab-iOS
@@ -9,29 +10,50 @@
 import UIKit
 import ObjectMapper
 
-class GitLabDateTransform: DateFormatterTransform {
-    
-    init() {
-        let formatter = NSDateFormatter()
-        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
-        //                        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        
-        super.init(dateFormatter: formatter)
-        
-        naturalFormatter.unitsStyle = NSDateComponentsFormatterUnitsStyle.Full
-        naturalFormatter.includesApproximationPhrase = true
-        naturalFormatter.includesTimeRemainingPhrase = false
-        naturalFormatter.allowedUnits = [NSCalendarUnit.WeekOfMonth , NSCalendarUnit.Day , NSCalendarUnit.Hour , NSCalendarUnit.Minute]
+//class GitLabDateTransform: DateFormatterTransform {
+//    
+//    init() {
+//        let formatter = NSDateFormatter()
+//        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+//        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+//        //                        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+//        
+//        super.init(dateFormatter: formatter)
+//    }
+//    
+//    
+//}
 
+class GitLabDateTransform: TransformType {
+    typealias Object = NSDate
+    typealias JSON = String
+    
+    let dateFormatters =
+        ["yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ",
+        "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
+        "yyyy-MM-dd'T'HH:mm:ss'Z'"]
+        .map { format -> NSDateFormatter in
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = format
+        return formatter
     }
     
-    let naturalFormatter = NSDateComponentsFormatter()
     
-    
-    func toNaturalString(value: NSDate?) -> String {
-        guard let date = value else {return ""}
-        return naturalFormatter.stringFromDate(date, toDate: NSDate()) ?? ""
+    func transformFromJSON(value: AnyObject?) -> NSDate? {
+        if let dateString = value as? String {
+            for formatter in dateFormatters {
+                if let date = formatter.dateFromString(dateString) {
+                    return date
+                }
+            }
+        }
+        return nil
     }
     
+    func transformToJSON(value: NSDate?) -> String? {
+        if let date = value {
+            return dateFormatters.first?.stringFromDate(date)
+        }
+        return nil
+    }
 }
