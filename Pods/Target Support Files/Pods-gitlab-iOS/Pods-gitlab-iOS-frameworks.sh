@@ -93,6 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-gitlab-iOS/SnapKit.framework"
   install_framework "Pods-gitlab-iOS/SwiftyJSON.framework"
   install_framework "Pods-gitlab-iOS/TagListView.framework"
+  install_framework "Pods-gitlab-iOS/XNGMarkdownParser.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gitlab-iOS/Alamofire.framework"
@@ -104,4 +105,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-gitlab-iOS/SnapKit.framework"
   install_framework "Pods-gitlab-iOS/SwiftyJSON.framework"
   install_framework "Pods-gitlab-iOS/TagListView.framework"
+  install_framework "Pods-gitlab-iOS/XNGMarkdownParser.framework"
 fi

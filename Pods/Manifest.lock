@@ -27,6 +27,7 @@ PODS:
   - SnapKit (0.19.1)
   - SwiftyJSON (2.3.2)
   - TagListView (0.5)
+  - XNGMarkdownParser (0.3.2)
 
 DEPENDENCIES:
   - Alamofire
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - SnapKit
   - SwiftyJSON
   - TagListView
+  - XNGMarkdownParser
 
 SPEC CHECKSUMS:
   Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
@@ -47,5 +49,6 @@ SPEC CHECKSUMS:
   SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TagListView: d9e6f0f30eca6a84138669f8449b89df068e6573
+  XNGMarkdownParser: aed98c14f0c0eb20064184ddf9bac26c482722b2
 
 COCOAPODS: 0.39.0

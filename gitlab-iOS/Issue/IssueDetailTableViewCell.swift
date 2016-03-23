@@ -10,7 +10,7 @@ import UIKit
 import TagListView
 
 class IssueDetailTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var IDLabel: UILabel!
     @IBOutlet weak var creatorName: UILabel!
@@ -18,7 +18,7 @@ class IssueDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var assigneeName: UILabel!
     @IBOutlet weak var updateTime: UILabel!
     @IBOutlet weak var tagListView: TagListView!
-    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var detailTextView: UITextView!
 }
 
 
@@ -40,7 +40,10 @@ class IssueDetailTableViewCellViewModel : TableViewCellViewModel {
         theCell.createTime.text = issue.created_at?.timeAgoSinceNow()
         theCell.assigneeName.text = issue.assignee?.name
         theCell.updateTime.text = issue.updated_at?.timeAgoSinceNow()
-        theCell.detailLabel.text = issue.desc
+        
+        let attributedDesc = MarkdownParser.sharedParser.parse(issue.desc)
+        
+        theCell.detailTextView.attributedText = attributedDesc
         
         theCell.tagListView.removeAllTags()
         for (title,color) in LabelTinter.tintLabels([issue.state.rawValue] + issue.labels) {

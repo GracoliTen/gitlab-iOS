@@ -11,6 +11,7 @@ target 'gitlab-iOS' do
 	pod 'AlamofireObjectMapper', '~> 2.1'
 	pod 'PromiseKit'
 	pod 'TagListView'
+	pod 'XNGMarkdownParser'
 end
 
 target 'gitlab-iOSTests' do
