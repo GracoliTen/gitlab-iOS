@@ -14,9 +14,9 @@ class LabelTinter {
     }
     class func tintLabel(label:String) -> (String,UIColor) {
         switch label {
-        case "bug", "error", "fail", "high":
+        case "bug", "error", "fail", "high", "opened":
             return (label,UIColor.redColor())
-        case "enhancement", "android":
+        case "enhancement", "android", "closed":
             return (label,UIColor.hexToUIColor(0x69d100)) //good green
         case "iOS", "apple", "iPhone", "iPad":
             return (label,UIColor.hexToUIColor(0x7f8c8d)) //apple grey

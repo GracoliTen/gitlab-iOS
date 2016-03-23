@@ -23,6 +23,7 @@
 		1A12C3601C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A12C35F1C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift */; };
 		1A2650B31C9E9454008AD94A /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2650B21C9E9454008AD94A /* Issue.swift */; };
 		1A2650B51C9EA65E008AD94A /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2650B41C9EA65E008AD94A /* IssueTableViewCell.swift */; };
+		1A29FBA51CA26AA70023D31D /* IssueDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A29FBA41CA26AA70023D31D /* IssueDetailTableViewCell.swift */; };
 		1A44B0401C9D2403009C35F8 /* ProjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B03F1C9D2403009C35F8 /* ProjectTableViewController.swift */; };
 		1A44B0421C9D3B8F009C35F8 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B0411C9D3B8F009C35F8 /* ProjectTableViewCell.swift */; };
 		1A44B0441C9D4D96009C35F8 /* RYTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B0431C9D4D96009C35F8 /* RYTableViewController.swift */; };
@@ -78,6 +79,7 @@
 		1A12C35F1C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlamofireSwiftyJSONAdapater.swift; path = utils/AlamofireSwiftyJSONAdapater.swift; sourceTree = "<group>"; };
 		1A2650B21C9E9454008AD94A /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Issue.swift; path = "gitlab-iOS/Issue/Issue.swift"; sourceTree = "<group>"; };
 		1A2650B41C9EA65E008AD94A /* IssueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IssueTableViewCell.swift; path = "gitlab-iOS/Issue/IssueTableViewCell.swift"; sourceTree = "<group>"; };
+		1A29FBA41CA26AA70023D31D /* IssueDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IssueDetailTableViewCell.swift; path = "gitlab-iOS/Issue/IssueDetailTableViewCell.swift"; sourceTree = "<group>"; };
 		1A44B03F1C9D2403009C35F8 /* ProjectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectTableViewController.swift; path = Project/ProjectTableViewController.swift; sourceTree = "<group>"; };
 		1A44B0411C9D3B8F009C35F8 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectTableViewCell.swift; path = Project/ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		1A44B0431C9D4D96009C35F8 /* RYTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RYTableViewController.swift; path = utils/RYTableViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		1A0145981C9BC7AE00519F67 = {
 			isa = PBXGroup;
 			children = (
+				1A29FBA41CA26AA70023D31D /* IssueDetailTableViewCell.swift */,
 				1A0718DF1C9F926100DB0015 /* LabelTinter.swift */,
 				1A0145A31C9BC7AE00519F67 /* gitlab-iOS */,
 				1A0145B81C9BC7AE00519F67 /* gitlab-iOSTests */,
@@ -436,6 +439,7 @@
 				1AF0D4431C9E5C8E00ECBF60 /* Commit.swift in Sources */,
 				1A44B0421C9D3B8F009C35F8 /* ProjectTableViewCell.swift in Sources */,
 				1AF0D43F1C9E5C0700ECBF60 /* ProjectDetailViewController.swift in Sources */,
+				1A29FBA51CA26AA70023D31D /* IssueDetailTableViewCell.swift in Sources */,
 				1A0145A51C9BC7AE00519F67 /* AppDelegate.swift in Sources */,
 				1A44B0401C9D2403009C35F8 /* ProjectTableViewController.swift in Sources */,
 				1A2650B51C9EA65E008AD94A /* IssueTableViewCell.swift in Sources */,

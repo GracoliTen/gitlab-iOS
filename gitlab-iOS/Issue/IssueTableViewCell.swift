@@ -44,7 +44,7 @@ class IssueTableViewCellViewModel : TableViewCellViewModel {
         }
         
         theCell.tagsView.removeAllTags()
-        for (label,color) in LabelTinter.tintLabels(issue.labels) {
+        for (label,color) in LabelTinter.tintLabels([issue.state.rawValue] + issue.labels) {
             theCell.tagsView.addTag(label).tagBackgroundColor = color
         }
         theCell.layoutIfNeeded()
