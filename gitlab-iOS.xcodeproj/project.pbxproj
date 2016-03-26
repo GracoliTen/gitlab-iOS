@@ -33,6 +33,7 @@
 		1A8D8D701CA233D900CE8C03 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D8D6F1CA233D900CE8C03 /* Note.swift */; };
 		1A8D8D721CA238C900CE8C03 /* IssueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D8D711CA238C900CE8C03 /* IssueTableViewController.swift */; };
 		1A8D8D741CA2390100CE8C03 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D8D731CA2390100CE8C03 /* NoteTableViewCell.swift */; };
+		1AE491881CA3956A003D17B6 /* HostProvidedURLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE491871CA3956A003D17B6 /* HostProvidedURLRequestConvertible.swift */; };
 		1AF0D43F1C9E5C0700ECBF60 /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF0D43E1C9E5C0700ECBF60 /* ProjectDetailViewController.swift */; };
 		1AF0D4431C9E5C8E00ECBF60 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF0D4421C9E5C8E00ECBF60 /* Commit.swift */; };
 		1AF0D4451C9E622B00ECBF60 /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF0D4441C9E622B00ECBF60 /* CommitTableViewCell.swift */; };
@@ -90,6 +91,7 @@
 		1A8D8D6F1CA233D900CE8C03 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Note/Note.swift; sourceTree = "<group>"; };
 		1A8D8D711CA238C900CE8C03 /* IssueTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IssueTableViewController.swift; path = Issue/IssueTableViewController.swift; sourceTree = "<group>"; };
 		1A8D8D731CA2390100CE8C03 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteTableViewCell.swift; path = Note/NoteTableViewCell.swift; sourceTree = "<group>"; };
+		1AE491871CA3956A003D17B6 /* HostProvidedURLRequestConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HostProvidedURLRequestConvertible.swift; path = utils/HostProvidedURLRequestConvertible.swift; sourceTree = "<group>"; };
 		1AF0D43E1C9E5C0700ECBF60 /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectDetailViewController.swift; path = Project/ProjectDetailViewController.swift; sourceTree = "<group>"; };
 		1AF0D4421C9E5C8E00ECBF60 /* Commit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Commit.swift; path = Commit/Commit.swift; sourceTree = "<group>"; };
 		1AF0D4441C9E622B00ECBF60 /* CommitTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommitTableViewCell.swift; path = Commit/CommitTableViewCell.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		1AF0D4401C9E5C3C00ECBF60 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				1AE491871CA3956A003D17B6 /* HostProvidedURLRequestConvertible.swift */,
 				1AF0D4461C9E6ACA00ECBF60 /* GitLabDateTransform.swift */,
 				1A44B0431C9D4D96009C35F8 /* RYTableViewController.swift */,
 				1A44B0451C9D4DB2009C35F8 /* TableViewCellViewModel.swift */,
@@ -436,6 +439,7 @@
 			files = (
 				1A44B0441C9D4D96009C35F8 /* RYTableViewController.swift in Sources */,
 				1AF0D4471C9E6ACA00ECBF60 /* GitLabDateTransform.swift in Sources */,
+				1AE491881CA3956A003D17B6 /* HostProvidedURLRequestConvertible.swift in Sources */,
 				1A8D8D701CA233D900CE8C03 /* Note.swift in Sources */,
 				1A2650B31C9E9454008AD94A /* Issue.swift in Sources */,
 				1A0145A71C9BC7AE00519F67 /* ViewController.swift in Sources */,

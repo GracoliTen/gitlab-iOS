@@ -42,6 +42,9 @@ enum ProjectRouter : HostProvidedURLRequestConvertible {
     
     typealias ReturnType = Project
     
+    var parameters:[String:AnyObject]? {return nil }
+    var method:Alamofire.Method {return Alamofire.Method.GET}
+    
     var path:String {
         let base = "/projects"
         switch self {
@@ -56,9 +59,4 @@ enum ProjectRouter : HostProvidedURLRequestConvertible {
         }
     }
     
-    func request(host:NSURL) -> NSMutableURLRequest {
-        let request = NSMutableURLRequest(URL: host.URLByAppendingPathComponent(self.path))
-        request.HTTPMethod = Alamofire.Method.GET.rawValue
-        return Alamofire.ParameterEncoding.URL.encode(request, parameters: nil).0
-    }
 }

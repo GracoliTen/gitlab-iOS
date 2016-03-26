@@ -6,18 +6,14 @@
 //  Copyright © 2016年 dyweb. All rights reserved.
 //
 
-import UIKit
-import Alamofire
-import ObjectMapper
-import AlamofireObjectMapper
-import SwiftyJSON
-import PromiseKit
+//import UIKit
+//import ObjectMapper
+//import SwiftyJSON
 
-protocol HostProvidedURLRequestConvertible {
-    typealias ReturnType : Mappable
-    //    typealias ViewModelType : TableViewCellViewModel
-    func request(host:NSURL) -> NSMutableURLRequest
-}
+import Alamofire
+import AlamofireObjectMapper
+
+import PromiseKit
 
 let client = GitLabAPIClient()
 
@@ -33,6 +29,25 @@ class GitLabAPIClient {
         return Alamofire.request(req).validate(statusCode: 200..<400)
     }
     
+    func cancellableGet<Router:HostProvidedURLRequestConvertible>(router:Router) -> (Promise<Router.ReturnType>,()->Void) {
+        let (promise, fulfill, reject) = Promise<Router.ReturnType>.pendingPromise()
+        
+        let request = self.request(router)
+        request.responseObject { (res:Response<Router.ReturnType, NSError>) -> Void in
+            if let err = res.result.error {
+                reject(err)
+            } else if let v = res.result.value {
+                fulfill(v)
+            }
+        }
+        
+        let cancel = {
+            request.cancel()
+            reject(NSError(domain: PMKErrorDomain, code: PMKOperationCancelled, userInfo: nil))
+        }
+        return (promise,cancel)
+    }
+    
     func get<Router:HostProvidedURLRequestConvertible>(router:Router) -> Promise<Router.ReturnType> {
         return Promise { fulfill, reject in
             self.request(router).responseObject { (res:Response<Router.ReturnType, NSError>) -> Void in
@@ -43,6 +58,25 @@ class GitLabAPIClient {
                 }
             }
         }
+    }
+    
+    func cancellableGetArray<Router:HostProvidedURLRequestConvertible>(router:Router) -> (Promise<[Router.ReturnType]>,()->Void) {
+        let (promise, fulfill, reject) = Promise<[Router.ReturnType]>.pendingPromise()
+        
+        let request = self.request(router)
+        request.responseArray { (res:Response<[Router.ReturnType], NSError>) -> Void in
+            if let err = res.result.error {
+                reject(err)
+            } else if let v = res.result.value {
+                fulfill(v)
+            }
+        }
+        
+        let cancel = {
+            request.cancel()
+            reject(NSError(domain: PMKErrorDomain, code: PMKOperationCancelled, userInfo: nil))
+        }
+        return (promise,cancel)
     }
     
     func getArray<Router:HostProvidedURLRequestConvertible>(router:Router) -> Promise<[Router.ReturnType]> {

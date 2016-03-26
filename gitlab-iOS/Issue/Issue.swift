@@ -24,12 +24,12 @@ class Issue : Mappable {
     var title:String = ""
     var state:IssueState = .Opened
     var desc:String?
-
+    
     var milestone:Milestone?
     var author:User?
     var assignee:User?
     var updated_at:NSDate?
-
+    
     var created_at:NSDate?
     
     var labels:[String] = []
@@ -54,7 +54,7 @@ class Issue : Mappable {
 enum IssueState : String {
     case Opened = "opened"
     case Closed = "closed"
-//    case All = ""
+    //    case All = ""
 }
 
 enum IssueRouter : HostProvidedURLRequestConvertible {
@@ -72,7 +72,9 @@ enum IssueRouter : HostProvidedURLRequestConvertible {
         }
     }
     
-    var parameters:[String:AnyObject] {
+    var method:Alamofire.Method {return Alamofire.Method.GET}
+    
+    var parameters:[String:AnyObject]? {
         let state:IssueState?
         let labels:[String]?
         switch self {
@@ -87,11 +89,5 @@ enum IssueRouter : HostProvidedURLRequestConvertible {
         p["state"] = state?.rawValue
         p["labels"] = labels
         return p
-    }
-    
-    func request(host:NSURL) -> NSMutableURLRequest {
-        let request = NSMutableURLRequest(URL: host.URLByAppendingPathComponent(self.path))
-        request.HTTPMethod = Alamofire.Method.GET.rawValue
-        return Alamofire.ParameterEncoding.URL.encode(request, parameters: self.parameters).0
     }
 }
