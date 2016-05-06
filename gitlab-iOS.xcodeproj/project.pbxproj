@@ -74,7 +74,7 @@
 		1A0145C41C9BC7AE00519F67 /* gitlab_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gitlab_iOSUITests.swift; sourceTree = "<group>"; };
 		1A0145C61C9BC7AE00519F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A0718DB1C9F8A5400DB0015 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTableViewCell.swift; path = "gitlab-iOS/User/UserTableViewCell.swift"; sourceTree = "<group>"; };
-		1A0718DF1C9F926100DB0015 /* LabelTinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelTinter.swift; path = "gitlab-iOS/utils/LabelTinter.swift"; sourceTree = "<group>"; };
+		1A0718DF1C9F926100DB0015 /* LabelTinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelTinter.swift; path = utils/LabelTinter.swift; sourceTree = "<group>"; };
 		1A0BCF7D1C9BE0B200223A7F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = "gitlab-iOS/Models/User.swift"; sourceTree = "<group>"; };
 		1A0BCF7F1C9BECF700223A7F /* DebugPrivateToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugPrivateToken.swift; path = ../DebugPrivateToken.swift; sourceTree = "<group>"; };
 		1A0BCF831C9BEE6600223A7F /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Models/Project.swift; sourceTree = "<group>"; };
@@ -88,8 +88,8 @@
 		1A44B0431C9D4D96009C35F8 /* RYTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RYTableViewController.swift; path = utils/RYTableViewController.swift; sourceTree = "<group>"; };
 		1A44B0451C9D4DB2009C35F8 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellViewModel.swift; path = utils/TableViewCellViewModel.swift; sourceTree = "<group>"; };
 		1A6917811C9E4E7D00CAAE66 /* UIImage+imageFromURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+imageFromURL.swift"; path = "utils/UIImage+imageFromURL.swift"; sourceTree = "<group>"; };
-		1A817AC21CDC82A7000CEF27 /* PagedTableViewFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagedTableViewFetcher.swift; path = "gitlab-iOS/utils/PagedTableViewFetcher.swift"; sourceTree = "<group>"; };
-		1A8B501A1CA27FB7008DDCB5 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownParser.swift; path = "gitlab-iOS/utils/MarkdownParser.swift"; sourceTree = "<group>"; };
+		1A817AC21CDC82A7000CEF27 /* PagedTableViewFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagedTableViewFetcher.swift; path = utils/PagedTableViewFetcher.swift; sourceTree = "<group>"; };
+		1A8B501A1CA27FB7008DDCB5 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownParser.swift; path = utils/MarkdownParser.swift; sourceTree = "<group>"; };
 		1A8D8D6F1CA233D900CE8C03 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Note/Note.swift; sourceTree = "<group>"; };
 		1A8D8D711CA238C900CE8C03 /* IssueTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IssueTableViewController.swift; path = Issue/IssueTableViewController.swift; sourceTree = "<group>"; };
 		1A8D8D731CA2390100CE8C03 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteTableViewCell.swift; path = Note/NoteTableViewCell.swift; sourceTree = "<group>"; };
@@ -132,10 +132,6 @@
 		1A0145981C9BC7AE00519F67 = {
 			isa = PBXGroup;
 			children = (
-				1A817AC21CDC82A7000CEF27 /* PagedTableViewFetcher.swift */,
-				1A8B501A1CA27FB7008DDCB5 /* MarkdownParser.swift */,
-				1A29FBA41CA26AA70023D31D /* IssueDetailTableViewCell.swift */,
-				1A0718DF1C9F926100DB0015 /* LabelTinter.swift */,
 				1A0145A31C9BC7AE00519F67 /* gitlab-iOS */,
 				1A0145B81C9BC7AE00519F67 /* gitlab-iOSTests */,
 				1A0145C31C9BC7AE00519F67 /* gitlab-iOSUITests */,
@@ -208,6 +204,7 @@
 		1A0718DE1C9F8A7D00DB0015 /* Issue */ = {
 			isa = PBXGroup;
 			children = (
+				1A29FBA41CA26AA70023D31D /* IssueDetailTableViewCell.swift */,
 				1A2650B21C9E9454008AD94A /* Issue.swift */,
 				1A2650B41C9EA65E008AD94A /* IssueTableViewCell.swift */,
 			);
@@ -218,6 +215,9 @@
 		1AF0D4401C9E5C3C00ECBF60 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				1A817AC21CDC82A7000CEF27 /* PagedTableViewFetcher.swift */,
+				1A8B501A1CA27FB7008DDCB5 /* MarkdownParser.swift */,
+				1A0718DF1C9F926100DB0015 /* LabelTinter.swift */,
 				1AE491871CA3956A003D17B6 /* HostProvidedURLRequestConvertible.swift */,
 				1AF0D4461C9E6ACA00ECBF60 /* GitLabDateTransform.swift */,
 				1A44B0431C9D4D96009C35F8 /* RYTableViewController.swift */,
