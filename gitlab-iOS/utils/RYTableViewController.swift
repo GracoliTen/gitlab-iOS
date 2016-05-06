@@ -11,6 +11,17 @@ import UIKit
 //TODO: (Table, Section) x (Headers, footers)
 class RYTableViewController : UITableViewController {
     
+    var scrollLoadEnabled = true
+    var fetcher:PagedTableViewFetcher! {
+        didSet {
+            tryToLoadMore()
+        }
+    }
+    //if there are only that much rows left, try to load more
+    var loadMoreThreshold:Int = 5
+//    var loadMoreThreshold:CGFloat = 100
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -39,11 +50,6 @@ class RYTableViewController : UITableViewController {
         cell.layoutIfNeeded()
         return cell
     }
-//    
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        let height = viewModels[indexPath.section][indexPath.row].heightForCell
-//        return height ?? super.tableView(tableView, heightForRowAtIndexPath:indexPath)
-//    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let viewModel = viewModels[indexPath.section][indexPath.row]
@@ -51,6 +57,15 @@ class RYTableViewController : UITableViewController {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
         viewModel.didSelectCell?(indexPath,controller: self)
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (viewModels.count == 0) { return }
+        if (scrollLoadEnabled &&
+            indexPath.section == viewModels.count-1 &&
+            indexPath.row > viewModels.last!.count - loadMoreThreshold) {
+            tryToLoadMore()
+        }
     }
     
     //TODO:is is sufficient to
@@ -71,4 +86,7 @@ class RYTableViewController : UITableViewController {
         self.performSegueWithIdentifier(identifier, sender: sender)
     }
     
+    func tryToLoadMore() {
+        fetcher?.tryToFetchMore()
+    }
 }

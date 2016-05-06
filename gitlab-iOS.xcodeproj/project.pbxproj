@@ -29,6 +29,7 @@
 		1A44B0441C9D4D96009C35F8 /* RYTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B0431C9D4D96009C35F8 /* RYTableViewController.swift */; };
 		1A44B0461C9D4DB2009C35F8 /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B0451C9D4DB2009C35F8 /* TableViewCellViewModel.swift */; };
 		1A6917821C9E4E7D00CAAE66 /* UIImage+imageFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6917811C9E4E7D00CAAE66 /* UIImage+imageFromURL.swift */; };
+		1A817AC31CDC82A7000CEF27 /* PagedTableViewFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A817AC21CDC82A7000CEF27 /* PagedTableViewFetcher.swift */; };
 		1A8B501B1CA27FB7008DDCB5 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B501A1CA27FB7008DDCB5 /* MarkdownParser.swift */; };
 		1A8D8D701CA233D900CE8C03 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D8D6F1CA233D900CE8C03 /* Note.swift */; };
 		1A8D8D721CA238C900CE8C03 /* IssueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D8D711CA238C900CE8C03 /* IssueTableViewController.swift */; };
@@ -87,6 +88,7 @@
 		1A44B0431C9D4D96009C35F8 /* RYTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RYTableViewController.swift; path = utils/RYTableViewController.swift; sourceTree = "<group>"; };
 		1A44B0451C9D4DB2009C35F8 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellViewModel.swift; path = utils/TableViewCellViewModel.swift; sourceTree = "<group>"; };
 		1A6917811C9E4E7D00CAAE66 /* UIImage+imageFromURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+imageFromURL.swift"; path = "utils/UIImage+imageFromURL.swift"; sourceTree = "<group>"; };
+		1A817AC21CDC82A7000CEF27 /* PagedTableViewFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagedTableViewFetcher.swift; path = "gitlab-iOS/utils/PagedTableViewFetcher.swift"; sourceTree = "<group>"; };
 		1A8B501A1CA27FB7008DDCB5 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownParser.swift; path = "gitlab-iOS/utils/MarkdownParser.swift"; sourceTree = "<group>"; };
 		1A8D8D6F1CA233D900CE8C03 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Note/Note.swift; sourceTree = "<group>"; };
 		1A8D8D711CA238C900CE8C03 /* IssueTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IssueTableViewController.swift; path = Issue/IssueTableViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		1A0145981C9BC7AE00519F67 = {
 			isa = PBXGroup;
 			children = (
+				1A817AC21CDC82A7000CEF27 /* PagedTableViewFetcher.swift */,
 				1A8B501A1CA27FB7008DDCB5 /* MarkdownParser.swift */,
 				1A29FBA41CA26AA70023D31D /* IssueDetailTableViewCell.swift */,
 				1A0718DF1C9F926100DB0015 /* LabelTinter.swift */,
@@ -459,6 +462,7 @@
 				1A6917821C9E4E7D00CAAE66 /* UIImage+imageFromURL.swift in Sources */,
 				1AF0D4451C9E622B00ECBF60 /* CommitTableViewCell.swift in Sources */,
 				1A12C35E1C9BD54B0050B5F2 /* GitLabAPIClient.swift in Sources */,
+				1A817AC31CDC82A7000CEF27 /* PagedTableViewFetcher.swift in Sources */,
 				1A0BCF841C9BEE6600223A7F /* Project.swift in Sources */,
 				1A44B0461C9D4DB2009C35F8 /* TableViewCellViewModel.swift in Sources */,
 				1A0BCF801C9BED3D00223A7F /* DebugPrivateToken.swift in Sources */,

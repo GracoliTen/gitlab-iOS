@@ -79,13 +79,13 @@ class GitLabAPIClient {
         return (promise,cancel)
     }
     
-    func getArray<Router:HostProvidedURLRequestConvertible>(router:Router) -> Promise<[Router.ReturnType]> {
+    func getArray<Router:HostProvidedURLRequestConvertible>(router:Router) -> Promise<([Router.ReturnType],NSHTTPURLResponse)> {
         return Promise { fulfill, reject in
             self.request(router).responseArray { (res:Response<[Router.ReturnType], NSError>) -> Void in
                 if let err = res.result.error {
                     reject(err)
                 } else if let v = res.result.value {
-                    fulfill(v)
+                    fulfill((v,res.response!))
                 }
             }
         }

@@ -12,7 +12,7 @@ import ObjectMapper
 func + <K,V>(left: Dictionary<K,V>?, right: Dictionary<K,V>?)
     -> Dictionary<K,V>?
 {
-    guard let left = left else {return nil}
+    guard let left = left else {return right}
     guard let right = right else {return left}
     var map = Dictionary<K,V>()
     for (k, v) in left {
@@ -46,7 +46,7 @@ extension HostProvidedURLRequestConvertible {
 //        return RouterWithParas(router: self,paras: paras)
 //    }
     func with(paras:[APIParameter]) -> RouterWrapper<Self> {
-        return RouterWrapper(router: self).with(paras)
+        return RouterWrapper(router: self,paras: paras)
     }
     
 
@@ -64,20 +64,13 @@ class RouterWrapper<T:HostProvidedURLRequestConvertible> : HostProvidedURLReques
     
     
     private let router:T
-    init(router:T) {
+    init(router:T,paras: [APIParameter]) {
         self.router = router
+        for (para) in paras {additionalParameters[para.key] = para.value}
     }
     
     var additionalParameters:[String:AnyObject] = [:]
 
-    //    swift dynamic dispatch will pick this method instead of protocol default implementation of `with`
-    //    although this is not an overriding
-    //    kinda hack?
-    //    at least in Xcode 7.2 Swift 2
-    func with(paras: [APIParameter]) -> Self {
-        for (para) in paras {additionalParameters[para.key] = para.value}
-        return self
-    }
     // maybe should provide api from raw dict?
     //    func with(paras: [String : AnyObject]) -> Self {
     //        additionalParameters += paras
@@ -93,15 +86,21 @@ protocol APIParameter {
 //GitLabParameter
 enum GLParam : APIParameter {
     case Page(Int)
+    case Length(Int)
     var key:String {
         switch self {
         case .Page(_):
             return "page"
+        case .Length(_):
+            return "per_page"
         }
+        
     }
     var value:AnyObject {
         switch self {
         case .Page(let p):
+            return p
+        case .Length(let p):
             return p
         }
     }

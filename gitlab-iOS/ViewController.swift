@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     
     func readProjects() {
         let client = GitLabAPIClient()
-        client.getArray(ProjectRouter.owned).then  { (projects:[Project]) -> Void in
+        client.getArray(ProjectRouter.owned).then  { (projects:[Project],res:NSHTTPURLResponse) -> Void in
             let alarm = UIAlertController(title: "got \(projects.count) projects", message: "they are: \n \(projects)", preferredStyle: .Alert)
             alarm.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
             self.presentViewController(alarm, animated: true, completion: nil)

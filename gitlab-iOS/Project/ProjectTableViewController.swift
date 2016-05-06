@@ -9,20 +9,26 @@
 import UIKit
 
 class ProjectTableViewController: RYTableViewController {
-    
-    func reloadData() {
-        client.getArray(ProjectRouter.accessable) .then { arr -> Void in
-            let section = arr.map {ProjectTableViewCellViewModel(project: $0)}
-            self.viewModels = [section]
-            } .error { (err:ErrorType) -> Void in
-                //make an errr HUD
-        }
-    }
-    
+    let router = ProjectRouter.accessable
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.estimatedRowHeight = 85
-        reloadData()
+        fetcher = PagedTableViewFetcher(fetch: { (page, count, handler) -> () in
+            var params:[APIParameter] = [GLParam.Page(page)]
+            if count != nil {
+                params.append(GLParam.Length(count!))
+            }
+            client.getArray(self.router.with(params)) .then { arr, res -> Void in
+                let section:[TableViewCellViewModel] = arr.map {ProjectTableViewCellViewModel(project: $0)}
+                handler(res)
+                if self.viewModels.count == 0 {
+                    self.viewModels = [section]
+                } else {
+                    self.viewModels[self.viewModels.count - 1].appendContentsOf(section)
+                }
+                
+                } .error { (err:ErrorType) -> Void in
+                    //make an errr HUD
+            }
+        })
     }
-    
 }
