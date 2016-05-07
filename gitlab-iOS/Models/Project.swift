@@ -19,6 +19,13 @@ class Project : Mappable {
     var last_activity_at:NSDate?
     var star_count:Int?
     var forks_count:Int?
+    var issues_enabled:Bool = false
+    var merge_requests_enabled:Bool = false
+    var builds_enabled:Bool = false
+    var wiki_enabled:Bool = false
+    var snippets_enabled:Bool = false
+    var visibility_level:Bool = false
+    var public_builds:Bool = false
     
     required init?(_ map: Map) {}
     func mapping(map: Map) {
@@ -31,6 +38,13 @@ class Project : Mappable {
         last_activity_at <- (map["last_activity_at"],GitLabDateTransform())
         star_count <- map["star_count"]
         forks_count <- map["forks_count"]
+        issues_enabled <- map["issues_enabled"]
+        merge_requests_enabled <- map["merge_requests_enabled"]
+        builds_enabled <- map["builds_enabled"]
+        wiki_enabled <- map["wiki_enabled"]
+        snippets_enabled <- map["snippets_enabled"]
+        visibility_level <- map["visibility_level"]
+        public_builds <- map["public_builds"]
     }
 }
 

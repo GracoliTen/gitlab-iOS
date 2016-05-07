@@ -426,6 +426,7 @@
                         <outlet property="segments" destination="tM7-cs-mfo" id="XLA-0Q-btw"/>
                         <segue destination="IsO-n1-hn1" kind="show" identifier="DetailToIssueSegue" id="QJ3-Yy-JG8"/>
                         <segue destination="sj9-Gr-85E" kind="show" identifier="DetailToCommitSegue" id="NUW-fA-DST"/>
+                        <segue destination="o2C-Pq-gnD" kind="show" identifier="DetailToSettingsSegue" id="vgk-5j-bGM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LeA-xL-mEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -681,7 +682,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="1Iv-a1-LMt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommitDetailCell" rowHeight="170" id="YjE-kK-1Ji" customClass="CommitDetailTableViewCell" customModule="gitlab_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="114" width="375" height="170"/>
@@ -756,7 +757,7 @@
                                                 <constraint firstAttribute="height" constant="63" id="PYT-EP-9Ds"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -932,6 +933,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0o-DZ-23B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2204.5" y="1330.5"/>
+        </scene>
+        <!--Project Settings View Controller-->
+        <scene sceneID="iSE-Tf-c5e">
+            <objects>
+                <viewController id="o2C-Pq-gnD" customClass="ProjectSettingsViewController" customModule="gitlab_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DUf-NG-i8J"/>
+                        <viewControllerLayoutGuide type="bottom" id="fUL-Un-Pvb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E5V-6K-1Zh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5L8-fu-lkL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2204.5" y="-245.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lut-Vs-ATp">

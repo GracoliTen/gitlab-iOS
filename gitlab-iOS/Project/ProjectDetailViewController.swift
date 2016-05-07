@@ -78,7 +78,15 @@ class ProjectDetailViewController: RYTableViewController {
     }
     
     func segementValueChanged(segment:UISegmentedControl) {
-        resetFetcher()
+        if segment.selectedSegmentIndex == 3 {
+            performSegueWithIdentifier("DetailToSettingsSegue", sender: project, action: { (segue:UIStoryboardSegue) -> Void in
+                let vc = segue.destinationViewController as! ProjectSettingsViewController
+                let project = self.project
+                vc.project = project
+            })
+        } else {
+            resetFetcher()
+        }
     }
     
 }
