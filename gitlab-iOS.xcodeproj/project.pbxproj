@@ -34,6 +34,9 @@
 		1A8D8D701CA233D900CE8C03 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D8D6F1CA233D900CE8C03 /* Note.swift */; };
 		1A8D8D721CA238C900CE8C03 /* IssueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D8D711CA238C900CE8C03 /* IssueTableViewController.swift */; };
 		1A8D8D741CA2390100CE8C03 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D8D731CA2390100CE8C03 /* NoteTableViewCell.swift */; };
+		1A97A0351CDCE8F30063FA42 /* CommitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97A0341CDCE8F30063FA42 /* CommitDetailViewController.swift */; };
+		1A97A0371CDCEB8D0063FA42 /* CommitDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97A0361CDCEB8D0063FA42 /* CommitDetailTableViewCell.swift */; };
+		1A97A0391CDCF8EE0063FA42 /* CommitNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97A0381CDCF8EE0063FA42 /* CommitNote.swift */; };
 		1AE491881CA3956A003D17B6 /* HostProvidedURLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE491871CA3956A003D17B6 /* HostProvidedURLRequestConvertible.swift */; };
 		1AF0D43F1C9E5C0700ECBF60 /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF0D43E1C9E5C0700ECBF60 /* ProjectDetailViewController.swift */; };
 		1AF0D4431C9E5C8E00ECBF60 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF0D4421C9E5C8E00ECBF60 /* Commit.swift */; };
@@ -91,8 +94,11 @@
 		1A817AC21CDC82A7000CEF27 /* PagedTableViewFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagedTableViewFetcher.swift; path = utils/PagedTableViewFetcher.swift; sourceTree = "<group>"; };
 		1A8B501A1CA27FB7008DDCB5 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownParser.swift; path = utils/MarkdownParser.swift; sourceTree = "<group>"; };
 		1A8D8D6F1CA233D900CE8C03 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Note/Note.swift; sourceTree = "<group>"; };
-		1A8D8D711CA238C900CE8C03 /* IssueTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IssueTableViewController.swift; path = Issue/IssueTableViewController.swift; sourceTree = "<group>"; };
+		1A8D8D711CA238C900CE8C03 /* IssueTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IssueTableViewController.swift; path = "gitlab-iOS/Issue/IssueTableViewController.swift"; sourceTree = "<group>"; };
 		1A8D8D731CA2390100CE8C03 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteTableViewCell.swift; path = Note/NoteTableViewCell.swift; sourceTree = "<group>"; };
+		1A97A0341CDCE8F30063FA42 /* CommitDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommitDetailViewController.swift; path = Commit/CommitDetailViewController.swift; sourceTree = "<group>"; };
+		1A97A0361CDCEB8D0063FA42 /* CommitDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommitDetailTableViewCell.swift; path = Commit/CommitDetailTableViewCell.swift; sourceTree = "<group>"; };
+		1A97A0381CDCF8EE0063FA42 /* CommitNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommitNote.swift; path = Commit/CommitNote.swift; sourceTree = "<group>"; };
 		1AE491871CA3956A003D17B6 /* HostProvidedURLRequestConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HostProvidedURLRequestConvertible.swift; path = utils/HostProvidedURLRequestConvertible.swift; sourceTree = "<group>"; };
 		1AF0D43E1C9E5C0700ECBF60 /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectDetailViewController.swift; path = Project/ProjectDetailViewController.swift; sourceTree = "<group>"; };
 		1AF0D4421C9E5C8E00ECBF60 /* Commit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Commit.swift; path = Commit/Commit.swift; sourceTree = "<group>"; };
@@ -154,6 +160,7 @@
 		1A0145A31C9BC7AE00519F67 /* gitlab-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				1A97A03A1CDCF98E0063FA42 /* Commit */,
 				1A0718DE1C9F8A7D00DB0015 /* Issue */,
 				1A0718DD1C9F8A6200DB0015 /* User */,
 				1AF0D4411C9E5C4A00ECBF60 /* Project */,
@@ -161,10 +168,8 @@
 				1A0145A41C9BC7AE00519F67 /* AppDelegate.swift */,
 				1A0145A61C9BC7AE00519F67 /* ViewController.swift */,
 				1A8D8D6F1CA233D900CE8C03 /* Note.swift */,
-				1A8D8D711CA238C900CE8C03 /* IssueTableViewController.swift */,
 				1A8D8D731CA2390100CE8C03 /* NoteTableViewCell.swift */,
 				1A0145A81C9BC7AE00519F67 /* Main.storyboard */,
-				1AF0D4441C9E622B00ECBF60 /* CommitTableViewCell.swift */,
 				1A0145AB1C9BC7AE00519F67 /* Assets.xcassets */,
 				1A0145AD1C9BC7AE00519F67 /* LaunchScreen.storyboard */,
 				1A0145B01C9BC7AE00519F67 /* Info.plist */,
@@ -204,12 +209,24 @@
 		1A0718DE1C9F8A7D00DB0015 /* Issue */ = {
 			isa = PBXGroup;
 			children = (
+				1A8D8D711CA238C900CE8C03 /* IssueTableViewController.swift */,
 				1A29FBA41CA26AA70023D31D /* IssueDetailTableViewCell.swift */,
 				1A2650B21C9E9454008AD94A /* Issue.swift */,
 				1A2650B41C9EA65E008AD94A /* IssueTableViewCell.swift */,
 			);
 			name = Issue;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		1A97A03A1CDCF98E0063FA42 /* Commit */ = {
+			isa = PBXGroup;
+			children = (
+				1A97A0341CDCE8F30063FA42 /* CommitDetailViewController.swift */,
+				1A97A0361CDCEB8D0063FA42 /* CommitDetailTableViewCell.swift */,
+				1AF0D4421C9E5C8E00ECBF60 /* Commit.swift */,
+				1A97A0381CDCF8EE0063FA42 /* CommitNote.swift */,
+			);
+			name = Commit;
 			sourceTree = "<group>";
 		};
 		1AF0D4401C9E5C3C00ECBF60 /* Util */ = {
@@ -233,7 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				1AF0D43E1C9E5C0700ECBF60 /* ProjectDetailViewController.swift */,
-				1AF0D4421C9E5C8E00ECBF60 /* Commit.swift */,
+				1AF0D4441C9E622B00ECBF60 /* CommitTableViewCell.swift */,
 				1A44B0411C9D3B8F009C35F8 /* ProjectTableViewCell.swift */,
 				1A0BCF831C9BEE6600223A7F /* Project.swift */,
 				1A44B03F1C9D2403009C35F8 /* ProjectTableViewController.swift */,
@@ -445,6 +462,7 @@
 				1AE491881CA3956A003D17B6 /* HostProvidedURLRequestConvertible.swift in Sources */,
 				1A8D8D701CA233D900CE8C03 /* Note.swift in Sources */,
 				1A2650B31C9E9454008AD94A /* Issue.swift in Sources */,
+				1A97A0371CDCEB8D0063FA42 /* CommitDetailTableViewCell.swift in Sources */,
 				1A0145A71C9BC7AE00519F67 /* ViewController.swift in Sources */,
 				1AF0D4431C9E5C8E00ECBF60 /* Commit.swift in Sources */,
 				1A44B0421C9D3B8F009C35F8 /* ProjectTableViewCell.swift in Sources */,
@@ -453,6 +471,7 @@
 				1A8B501B1CA27FB7008DDCB5 /* MarkdownParser.swift in Sources */,
 				1A0145A51C9BC7AE00519F67 /* AppDelegate.swift in Sources */,
 				1A44B0401C9D2403009C35F8 /* ProjectTableViewController.swift in Sources */,
+				1A97A0391CDCF8EE0063FA42 /* CommitNote.swift in Sources */,
 				1A2650B51C9EA65E008AD94A /* IssueTableViewCell.swift in Sources */,
 				1A0718E01C9F926100DB0015 /* LabelTinter.swift in Sources */,
 				1A12C3601C9BDCCB0050B5F2 /* AlamofireSwiftyJSONAdapater.swift in Sources */,
@@ -460,6 +479,7 @@
 				1A8D8D741CA2390100CE8C03 /* NoteTableViewCell.swift in Sources */,
 				1A0718DC1C9F8A5400DB0015 /* UserTableViewCell.swift in Sources */,
 				1A6917821C9E4E7D00CAAE66 /* UIImage+imageFromURL.swift in Sources */,
+				1A97A0351CDCE8F30063FA42 /* CommitDetailViewController.swift in Sources */,
 				1AF0D4451C9E622B00ECBF60 /* CommitTableViewCell.swift in Sources */,
 				1A12C35E1C9BD54B0050B5F2 /* GitLabAPIClient.swift in Sources */,
 				1A817AC31CDC82A7000CEF27 /* PagedTableViewFetcher.swift in Sources */,

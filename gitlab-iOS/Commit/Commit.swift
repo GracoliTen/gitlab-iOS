@@ -10,6 +10,8 @@ import ObjectMapper
 import Alamofire
 
 class Commit : Mappable {
+    var project:Project?
+    
     var id:String?
     var short_id:String?
     var title:String?

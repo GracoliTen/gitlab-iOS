@@ -45,7 +45,7 @@ class ProjectDetailViewController: RYTableViewController {
             case .Commits:
                 client.getArray(CommitRouter.List(id: self.project.id).with(params)) .then { arr, res -> Void in
                     handler(res)
-                    let section:[TableViewCellViewModel] = arr.map {CommitTableViewCellViewModel(commit: $0)}
+                    let section:[TableViewCellViewModel] = arr.map {CommitTableViewCellViewModel(commit: $0,project:self.project)}
                     self.viewModels[0].appendContentsOf(section)
                     } .error { (err:ErrorType) -> Void in
                         //make an errr HUD

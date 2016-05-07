@@ -21,8 +21,9 @@ class CommitTableViewCell : UITableViewCell {
 class CommitTableViewCellViewModel : TableViewCellViewModel {
     
     let commit:Commit
-    init(commit:Commit) {
+    init(commit:Commit,project:Project?) {
         self.commit = commit
+        self.commit.project = project
     }
     
     @objc let cellIdentifier =  "CommitCell"
@@ -36,7 +37,12 @@ class CommitTableViewCellViewModel : TableViewCellViewModel {
     }
     
     @objc func didSelectCell(indexPath: NSIndexPath, controller: RYTableViewController) {
-        
+        let segue = "DetailToCommitSegue"
+        controller.performSegueWithIdentifier(segue, sender: commit) {
+            segue in
+            let vc = segue.destinationViewController as! CommitDetailViewController
+            vc.commit = self.commit
+        }
     }
     @objc var resetAfterSelect = true
 }

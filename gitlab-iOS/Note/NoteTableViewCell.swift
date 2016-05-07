@@ -53,3 +53,31 @@ class NoteTableViewCellViewModel : TableViewCellViewModel {
     
     @objc var resetAfterSelect = true
 }
+
+class CommitNoteTableViewCellViewModel : TableViewCellViewModel {
+    
+    let note:CommitNote
+    init(note:CommitNote) {
+        self.note = note
+    }
+    
+    @objc let cellIdentifier =  "NoteCell"
+    
+    @objc func configureCell(cell:UITableViewCell) {
+        let theCell = cell as! NoteTableViewCell
+        theCell.bodyTextView.attributedText = MarkdownParser.sharedParser.parse(note.note)
+        theCell.timeLabel.text = note.created_at?.timeAgoSinceNow()
+        theCell.nameLabel.text = note.author?.name
+        theCell.usernameLabel.text = "@" + (note.author?.username ?? "")
+        UIImage.imageFromURL(URL: note.author?.avatar_url) {
+            theCell.avatarImageView.image = $0
+        }
+        
+    }
+    
+    @objc func didSelectCell(indexPath: NSIndexPath, controller: RYTableViewController) {
+        
+    }
+    
+    @objc var resetAfterSelect = true
+}
