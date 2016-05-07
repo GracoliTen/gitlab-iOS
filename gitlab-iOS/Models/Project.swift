@@ -53,11 +53,26 @@ enum ProjectRouter : HostProvidedURLRequestConvertible {
     case owned
     case starred
     case id(Int)
+    case edit(Int,[String:AnyObject])
     
     typealias ReturnType = Project
     
-    var parameters:[String:AnyObject]? {return nil }
-    var method:Alamofire.Method {return Alamofire.Method.GET}
+    var parameters:[String:AnyObject]? {
+        switch self {
+        case .edit(_, let dict):
+            return dict
+        default:
+            return nil
+        }
+    }
+    var method:Alamofire.Method {
+        switch self {
+        case .edit(_, _):
+            return .PUT
+        default:
+            return .GET
+        }
+    }
     
     var path:String {
         let base = "/projects"
@@ -69,6 +84,8 @@ enum ProjectRouter : HostProvidedURLRequestConvertible {
         case .starred:
             return base + "/starred"
         case .id(let i):
+            return base + "/\(i)"
+        case .edit(let i, _):
             return base + "/\(i)"
         }
     }

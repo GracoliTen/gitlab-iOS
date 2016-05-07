@@ -11,6 +11,12 @@ import Eureka
 
 class ProjectSettingsViewController: FormViewController, ProjectChildViewController {
 
+    let saveRow = ButtonRow("save") {
+        $0.title = "SAVE"
+    } .cellSetup { (cell, row) -> () in
+        cell.textLabel?.textColor = UIColor.redColor()
+    }
+    
     let nameRow = TextRow("name") { $0.title = "Name" }
     let pathRow = LabelRow("path") { $0.title = "Path" }
     let descriptionRow = TextAreaRow("description") { $0.title = "description" }
@@ -41,10 +47,15 @@ class ProjectSettingsViewController: FormViewController, ProjectChildViewControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        form +++ Section("Project information")
+        form
+            +++ Section("Save")
+            <<< saveRow .onCellSelection { (cell, row) -> () in self.save() } //closure requires `self`, cannot be in init time
+            
+            +++ Section("Project information")
             <<< nameRow
             <<< pathRow
             <<< descriptionRow
+            
             +++ Section("Permission Control")
             <<< issuesEnabledRow
             <<< mergeRequestsEnabledRow
@@ -53,6 +64,24 @@ class ProjectSettingsViewController: FormViewController, ProjectChildViewControl
             <<< snippetsEnabledRow
             <<< publicRow
             <<< publicBuildsRow
+    }
+    func filterOptionals(dict: [String:Any?]) -> [String:AnyObject] {
+        var newDict = [String:AnyObject]()
+        for (k,v) in dict {
+            if let vobj = v as? AnyObject {
+                newDict[k] = vobj
+            }
+        }
+        return newDict
+    }
+    
+    func save() {
+        let dict = filterOptionals(form.values())
+        client.get(ProjectRouter.edit(project.id, dict)) .then { _ in
+            print("done")
+        } .error { (err) -> Void in
+            print(err)
+        }
     }
     
 }
