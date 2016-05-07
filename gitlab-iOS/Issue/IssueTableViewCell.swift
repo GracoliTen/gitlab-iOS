@@ -52,9 +52,9 @@ class IssueTableViewCellViewModel : TableViewCellViewModel {
     }
     
     @objc func didSelectCell(indexPath:NSIndexPath,controller:RYTableViewController) {
-        controller.performSegueWithIdentifier("DetailToIssueSegue", sender: nil) {segue in
+        controller.performSegueWithIdentifier("DetailToIssueSegue", sender: self.issue) {segue,sender in
             let vc = segue.destinationViewController as! IssueTableViewController
-            vc.issue = self.issue
+            vc.issue = sender as! Issue
         }
     }
     

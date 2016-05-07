@@ -43,9 +43,9 @@ class ProjectTableViewCellViewModel :  TableViewCellViewModel {
     @objc func didSelectCell(indexPath:NSIndexPath,controller:RYTableViewController) {
         let segue = "ProjectToDetailSegue"
         controller.performSegueWithIdentifier(segue, sender: project) {
-            segue in
+            segue, sender in
             let vc = segue.destinationViewController as! ProjectDetailViewController
-            vc.project = self.project
+            vc.project = sender as! Project
         }
     }
     

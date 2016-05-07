@@ -13,80 +13,54 @@ enum ProjectDetailViewType : Int {
     case Commits = 0
     case Issues = 1
     case Members = 2
-    
-    static func fromRaw(rawValue:Int) -> ProjectDetailViewType {
-        if rawValue < 0 || rawValue > 2 {
-            return .Commits
-        }
-        return ProjectDetailViewType(rawValue: rawValue)!
-    }
+    case Settings = 3
 }
 
-class ProjectDetailViewController: RYTableViewController {
+class ProjectDetailViewController: UIViewController {
+    
+    @IBOutlet weak var commitsView: UIView!
+    @IBOutlet weak var issuesView: UIView!
+    @IBOutlet weak var membersView: UIView!
+    @IBOutlet weak var settingsView: UIView!
     
     @IBOutlet weak var segments: UISegmentedControl!
     
+    
     var project:Project! {
         didSet {
-            self.navigationItem.title = project.name_with_namespace
-            resetFetcher()
+            guard project !== oldValue else {return }
+            updateData()
         }
     }
-    
-    func resetFetcher() {
-         self.viewModels = [[]]
-        let type = ProjectDetailViewType.fromRaw(segments?.selectedSegmentIndex ?? 0)
-        fetcher = PagedTableViewFetcher { (page, count, handler) -> () in
-            var params:[APIParameter] = [GLParam.Page(page)]
-            if count != nil {
-                params.append(GLParam.Length(count!))
-            }
-            switch type {
-            case .Commits:
-                client.getArray(CommitRouter.List(id: self.project.id).with(params)) .then { arr, res -> Void in
-                    handler(res)
-                    let section:[TableViewCellViewModel] = arr.map {CommitTableViewCellViewModel(commit: $0,project:self.project)}
-                    self.viewModels[0].appendContentsOf(section)
-                    } .error { (err:ErrorType) -> Void in
-                        //make an errr HUD
-                }
-            case .Issues:
-                client.getArray(IssueRouter.Project(self.project.id, nil, nil).with(params)) .then { arr, res -> Void in
-                    handler(res)
-                    let section:[TableViewCellViewModel] = arr.map {IssueTableViewCellViewModel(issue: $0)}
-                    self.viewModels[0].appendContentsOf(section)
-                    } .error { (err:ErrorType) -> Void in
-                        //make an errr HUD
-                }
-            case .Members:
-                client.getArray(UserRouter.Project(self.project.id, nil).with(params)) .then { arr, res -> Void in
-                    handler(res)
-                    let section:[TableViewCellViewModel] = arr.map {UserTableViewCellViewModel(user: $0)}
-                    self.viewModels[0].appendContentsOf(section)
-                    } .error { (err:ErrorType) -> Void in
-                        //make an errr HUD
-                }
-            }
-            
+    func updateData() {
+        self.navigationItem.title = project.name_with_namespace
+        for controller in childViewControllers {
+            var child = controller as! ProjectChildViewController
+            child.project = project
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         segments.addTarget(self, action: "segementValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
+        updateData()
+        segments.selectedSegmentIndex = 0
+        segementValueChanged(segments)
     }
     
     func segementValueChanged(segment:UISegmentedControl) {
-        if segment.selectedSegmentIndex == 3 {
-            performSegueWithIdentifier("DetailToSettingsSegue", sender: project, action: { (segue:UIStoryboardSegue) -> Void in
-                let vc = segue.destinationViewController as! ProjectSettingsViewController
-                let project = self.project
-                vc.project = project
-            })
-        } else {
-            resetFetcher()
+        let views = [commitsView, issuesView, membersView, settingsView]
+        for view in views {
+            view.hidden = true
         }
+        views[segments.selectedSegmentIndex].hidden = false
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let child = segue.destinationViewController as? ProjectChildViewController {
+            let vc = child as! UIViewController
+            addChildViewController(vc)
+            vc.didMoveToParentViewController(self)
+        }
+    }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Eureka
 
-class ProjectSettingsViewController: FormViewController {
+class ProjectSettingsViewController: FormViewController, ProjectChildViewController {
 
     let nameRow = TextRow("name") { $0.title = "Name" }
     let pathRow = LabelRow("path") { $0.title = "Path" }

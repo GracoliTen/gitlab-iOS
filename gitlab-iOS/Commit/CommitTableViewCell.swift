@@ -39,9 +39,9 @@ class CommitTableViewCellViewModel : TableViewCellViewModel {
     @objc func didSelectCell(indexPath: NSIndexPath, controller: RYTableViewController) {
         let segue = "DetailToCommitSegue"
         controller.performSegueWithIdentifier(segue, sender: commit) {
-            segue in
+            segue, sender in
             let vc = segue.destinationViewController as! CommitDetailViewController
-            vc.commit = self.commit
+            vc.commit = sender as! Commit
         }
     }
     @objc var resetAfterSelect = true
