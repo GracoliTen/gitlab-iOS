@@ -18,11 +18,7 @@ class CommitDetailViewController: RYTableViewController {
             ]
             router = CommitNoteRouter.Single(id: commit.project?.id ?? -1, sha: commit.id ?? "")
             fetcher = PagedTableViewFetcher(fetch: { (page, count, handler) -> () in
-                var params:[APIParameter] = [GLParam.Page(page)]
-                if count != nil {
-                    params.append(GLParam.Length(count!))
-                }
-                client.getArray(self.router.with(params)) .then {
+                client.getArray(self.router.withPage(page, count: count)) .then {
                     arr, res -> Void in
                     let section:[TableViewCellViewModel] = arr.map {CommitNoteTableViewCellViewModel(note: $0) }
                     handler(res)

@@ -16,11 +16,7 @@ class IssueTableViewController: RYTableViewController {
                 self.navigationItem.title = issue.title
                 router = NoteRouter.Issue(issue.project_id, issue.id)
                 fetcher = PagedTableViewFetcher(fetch: { (page, count, handler) -> () in
-                    var params:[APIParameter] = [GLParam.Page(page)]
-                    if count != nil {
-                        params.append(GLParam.Length(count!))
-                    }
-                    client.getArray(self.router.with(params))
+                    client.getArray(self.router.withPage(page, count: count))
                         .then { arr, res -> Void in
                             handler(res)
                             let section:[TableViewCellViewModel] = arr.map {

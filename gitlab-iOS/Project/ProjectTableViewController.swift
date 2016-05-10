@@ -13,11 +13,7 @@ class ProjectTableViewController: RYTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetcher = PagedTableViewFetcher(fetch: { (page, count, handler) -> () in
-            var params:[APIParameter] = [GLParam.Page(page)]
-            if count != nil {
-                params.append(GLParam.Length(count!))
-            }
-            client.getArray(self.router.with(params)) .then { arr, res -> Void in
+            client.getArray(self.router.withPage(page, count: count)) .then { arr, res -> Void in
                 let section:[TableViewCellViewModel] = arr.map {ProjectTableViewCellViewModel(project: $0)}
                 handler(res)
                 if self.viewModels.count == 0 {

@@ -28,7 +28,7 @@ func +=<K, V> (inout left: [K : V], right: [K : V]) { for (k, v) in right { left
 
 
 protocol HostProvidedURLRequestConvertible {
-    typealias ReturnType : Mappable
+    associatedtype ReturnType : Mappable
     //    typealias ViewModelType : TableViewCellViewModel
     var method:Alamofire.Method {get}
     var path:String {get}
@@ -41,15 +41,9 @@ extension HostProvidedURLRequestConvertible {
         request.HTTPMethod = self.method.rawValue
         return Alamofire.ParameterEncoding.URL.encode(request, parameters: self.parameters).0
     }
-    
-//    func with(paras:[String:AnyObject]) -> RouterWithParas<Self> {
-//        return RouterWithParas(router: self,paras: paras)
-//    }
     func with(paras:[APIParameter]) -> RouterWrapper<Self> {
         return RouterWrapper(router: self,paras: paras)
     }
-    
-
     
 }
 
@@ -68,14 +62,13 @@ class RouterWrapper<T:HostProvidedURLRequestConvertible> : HostProvidedURLReques
         self.router = router
         for (para) in paras {additionalParameters[para.key] = para.value}
     }
+    func with(paras:[APIParameter]) -> Self {
+        for (para) in paras {additionalParameters[para.key] = para.value}
+        return self
+    }
     
     var additionalParameters:[String:AnyObject] = [:]
 
-    // maybe should provide api from raw dict?
-    //    func with(paras: [String : AnyObject]) -> Self {
-    //        additionalParameters += paras
-    //        return self
-    //    }
 }
 
 protocol APIParameter {
@@ -106,5 +99,14 @@ enum GLParam : APIParameter {
     }
 }
 
+extension HostProvidedURLRequestConvertible {
+    func withPage(page:Int,count:Int?) -> RouterWrapper<Self> {
+        var params:[APIParameter] = [GLParam.Page(page)]
+        if count != nil {
+            params.append(GLParam.Length(count!))
+        }
+        return with(params)
+    }
+}
 
 

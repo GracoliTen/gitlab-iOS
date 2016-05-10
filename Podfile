@@ -12,7 +12,7 @@ target 'gitlab-iOS' do
 	pod 'PromiseKit'
 	pod 'TagListView'
 	pod 'XNGMarkdownParser'
-	pod 'Eureka', '<= 1.4.1'
+	pod 'Eureka'
 end
 
 target 'gitlab-iOSTests' do

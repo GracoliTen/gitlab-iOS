@@ -42,7 +42,7 @@ class ProjectDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        segments.addTarget(self, action: "segementValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
+        segments.addTarget(self, action: #selector(ProjectDetailViewController.segementValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         updateData()
         segments.selectedSegmentIndex = 0
         segementValueChanged(segments)

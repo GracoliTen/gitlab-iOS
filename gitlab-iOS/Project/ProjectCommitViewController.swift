@@ -21,11 +21,7 @@ class ProjectCommitViewController: RYTableViewController, ProjectChildViewContro
     func resetFetcher() {
         self.viewModels = [[]]
         fetcher = PagedTableViewFetcher { (page, count, handler) -> () in
-            var params:[APIParameter] = [GLParam.Page(page)]
-            if count != nil {
-                params.append(GLParam.Length(count!))
-            }
-                client.getArray(CommitRouter.List(id: self.project.id).with(params)) .then { arr, res -> Void in
+                client.getArray(CommitRouter.List(id: self.project.id).withPage(page, count: count)) .then { arr, res -> Void in
                     handler(res)
                     let section:[TableViewCellViewModel] = arr.map {CommitTableViewCellViewModel(commit: $0,project:self.project)}
                     self.viewModels[0].appendContentsOf(section)
@@ -46,11 +42,7 @@ class ProjectIssueViewController: RYTableViewController, ProjectChildViewControl
     func resetFetcher() {
         self.viewModels = [[]]
         fetcher = PagedTableViewFetcher { (page, count, handler) -> () in
-            var params:[APIParameter] = [GLParam.Page(page)]
-            if count != nil {
-                params.append(GLParam.Length(count!))
-            }
-            client.getArray(IssueRouter.Project(self.project.id, nil, nil).with(params)) .then { arr, res -> Void in
+            client.getArray(IssueRouter.Project(self.project.id, nil, nil).withPage(page, count: count)) .then { arr, res -> Void in
                 handler(res)
                 let section:[TableViewCellViewModel] = arr.map {IssueTableViewCellViewModel(issue: $0)}
                 self.viewModels[0].appendContentsOf(section)
@@ -72,11 +64,7 @@ class ProjectMemberViewController: RYTableViewController, ProjectChildViewContro
     func resetFetcher() {
         self.viewModels = [[]]
         fetcher = PagedTableViewFetcher { (page, count, handler) -> () in
-            var params:[APIParameter] = [GLParam.Page(page)]
-            if count != nil {
-                params.append(GLParam.Length(count!))
-            }
-            client.getArray(UserRouter.Project(self.project.id, nil).with(params)) .then { arr, res -> Void in
+            client.getArray(UserRouter.Project(self.project.id, nil).withPage(page, count: count)) .then { arr, res -> Void in
                 handler(res)
                 let section:[TableViewCellViewModel] = arr.map {UserTableViewCellViewModel(user: $0)}
                 self.viewModels[0].appendContentsOf(section)
